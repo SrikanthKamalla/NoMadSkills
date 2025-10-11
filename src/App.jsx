@@ -1,7 +1,12 @@
 import React from "react";
+import MernCourse from "./components/MernCourse";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <MernCourse />
+    </div>
+  );
 };
 
 export default App;
