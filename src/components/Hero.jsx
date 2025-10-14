@@ -1,4 +1,5 @@
 import React from "react";
+import heroPic from "../assets/OIP.webp";
 
 const Hero = () => {
   return (
@@ -15,7 +16,12 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+          <button
+            onClick={() => {
+              document.getElementById("courses").scrollIntoView({ behavior: "smooth" });
+            }}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
             Explore Courses
           </button>
           <button className="border border-white hover:bg-white hover:text-purple-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
@@ -25,10 +31,13 @@ const Hero = () => {
       </div>
 
       <div className="flex-1 mt-10 lg:mt-0 flex justify-center lg:justify-end">
-        <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-purple-800/30 rounded-full flex items-center justify-center animate-float">
-          <div className="text-center text-purple-200">
-            <div className="text-4xl mb-2">🎯</div>
-            <p className="text-sm">Training Illustration</p>
+        <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-purple-800/30 rounded-full flex items-center justify-center animate-float overflow-hidden">
+          <div className="w-full h-full flex items-center justify-center">
+            <img 
+              src={heroPic} 
+              alt="Training Illustration" 
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
         </div>
       </div>

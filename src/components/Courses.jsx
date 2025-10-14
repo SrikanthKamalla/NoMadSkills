@@ -10,10 +10,12 @@ import {
   BookOpen,
   ChevronRight,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const courses = [
   {
     id: "fullstack",
+    navigateTo: "/merncourse",
     title: "Full Stack (MERN) Development",
     duration: "9 MONTHS",
     color: "from-purple-500 to-blue-500",
@@ -37,6 +39,7 @@ const courses = [
   },
   {
     id: "devops",
+    navigateTo: "/devops",
     title: "DevOps & Cloud Engineering",
     duration: "7 MONTHS",
     color: "from-green-400 to-cyan-500",
@@ -60,6 +63,7 @@ const courses = [
   },
   {
     id: "data",
+    navigateTo: "/dataanalytics",
     title: "Data Analytics & Visualization",
     duration: "6 MONTHS",
     color: "from-orange-400 to-pink-500",
@@ -85,7 +89,18 @@ const courses = [
 
 const Courses = () => {
   const [selected, setSelected] = useState("fullstack");
+  const navigate = useNavigate(); // ✅ Fixed: useNavigate inside component
   const currentCourse = courses.find(c => c.id === selected);
+
+  const handleViewProgram = (course) => {
+    // ✅ Scroll to top before navigation
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // ✅ Navigate after a small delay to ensure scroll completes
+    setTimeout(() => {
+      navigate(course.navigateTo);
+    }, 100);
+  };
 
   return (
     <div id="courses" className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-hidden py-5 px-4">
@@ -245,6 +260,7 @@ const Courses = () => {
 
                 <div className="mt-auto">
                   <button
+                    onClick={() => handleViewProgram(currentCourse)}
                     className={`w-full ${currentCourse.accent} text-white py-4 px-6 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2`}
                   >
                     View Program <ChevronRight size={20} />
