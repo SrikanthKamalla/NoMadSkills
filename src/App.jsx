@@ -5,23 +5,22 @@ import Devops from "./components/Devops";
 import Courses from "./components/Courses";
 import { sendEmail } from "./nodeMailerServer";
 import CareerSteps from "./components/CareerSteps";
-
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-  useEffect(()=>{
+  useEffect(() => {
     // sendEmail();
-  },[])
+  }, []);
   return (
     <div>
       <MernCourse />
 
       <DataAnalytics />
       <Devops />
-    </div>
 
-      <Courses/>
-      <CareerSteps/>
-    </div> 
+      <Courses />
+      <CareerSteps />
+    </div>
   );
 };
 
