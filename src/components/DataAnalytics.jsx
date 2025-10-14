@@ -14,7 +14,8 @@ import {
 import MernSyllabus from "./MernSyllabus";
 import StepsToSuccess from "./StepsToSuccess";
 import FAQ from "./FAQ";
-const MernCourse = () => {
+import DataAnalyticsSyllabus from "./DataAnalyticsSyllabus";
+const DataAnalytics = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
 
@@ -95,9 +96,9 @@ const MernCourse = () => {
               >
                 Master{" "}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  MERN Stack
+                  Data
                 </span>{" "}
-                Development &{" "}
+                Analytics &{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Data Strctures
                 </span>
@@ -231,11 +232,11 @@ const MernCourse = () => {
           />
         </motion.div>
       </div>
-      <MernSyllabus />
+      <DataAnalyticsSyllabus />
       <StepsToSuccess />
       <FAQ />
     </div>
   );
 };
 
-export default MernCourse;
+export default DataAnalytics;
