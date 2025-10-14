@@ -22,7 +22,6 @@ const App = () => {
       <Courses/>
       <CareerSteps/>
     </div> 
-
   );
 };
 
