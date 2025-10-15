@@ -3,18 +3,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FloatingLabelInput from "./FloatingLabelInput";
+import { sendEmail } from "../nodeMailerServer";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .refine(val => val.includes("@"), {
-      message: "Email must include @",
-    })
-    .refine(val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), {
-      message: "Invalid email format",
-    }),
+  email: z.string().min(1, "Email is required").email("Invalid email format"),
   phone: z
     .string()
     .min(10, "Phone must be exactly 10 digits")
@@ -22,20 +15,29 @@ const schema = z.object({
     .regex(/^\d+$/, "Phone must contain only digits"),
 });
 
-const CallbackForm = ({ title }) => {
+const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
   const {
     register,
     handleSubmit,
     setValue,
     clearErrors,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(schema),
     mode: "onBlur",
   });
 
-  const [formValues, setFormValues] = useState({ name: "", email: "", phone: "" });
-  const [focusState, setFocusState] = useState({ name: false, email: false, phone: false });
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const [focusState, setFocusState] = useState({
+    name: false,
+    email: false,
+    phone: false,
+  });
 
   const handleChange = field => e => {
     let newValue = e.target.value;
@@ -48,21 +50,55 @@ const CallbackForm = ({ title }) => {
   };
 
   const handleFocus = field => setFocusState(prev => ({ ...prev, [field]: true }));
-  const handleBlur = field =>
+
+  const handleBlur = field => {
     setFocusState(prev => ({
       ...prev,
       [field]: formValues[field] !== "",
     }));
+  };
+  const onSubmit = async data => {
+    try {
+      const result = await sendEmail({
+        phone: data.phone,
+        name: data.name,
+        email: data.email,
+      });
 
-  const onSubmit = data => console.log("Form Data:", data);
+      if (result.success) {
+        // Show success message (replace with your toast library)
+        if (typeof onSuccess === "function") {
+          onSuccess("Query sent successfully! We'll get back to you shortly.");
+        }
+
+        // Close modal if onClose function is provided
+        if (typeof onClose === "function") {
+          onClose();
+        }
+
+        // Reset form
+        setFormValues({ name: "", email: "", phone: "" });
+        setFocusState({ name: false, email: false, phone: false });
+      } else {
+        // Handle error
+        if (typeof onSuccess === "function") {
+          onSuccess("Failed to send query. Please try again.", "error");
+        }
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      if (typeof onSuccess === "function") {
+        onSuccess("An error occurred. Please try again.", "error");
+      }
+    }
+  };
 
   return (
     <div>
-      <h2 className="text-black text-3xl text-center mb-6">{title}</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"
-      >
+      <h2 className="text-gray-800 text-2xl font-semibold text-center mb-2">{title}</h2>
+      <p className="text-gray-600 text-center mb-6">We'll get back to you shortly</p>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <FloatingLabelInput
           id="name"
           label="Full Name"
@@ -72,18 +108,20 @@ const CallbackForm = ({ title }) => {
           onFocus={() => handleFocus("name")}
           onBlur={() => handleBlur("name")}
           error={errors.name?.message}
+          className="border-gray-300 focus:border-indigo-500"
         />
 
         <FloatingLabelInput
           id="email"
           label="Email"
-          type="text"
+          type="email"
           value={formValues.email}
           onChange={handleChange("email")}
           isFocused={focusState.email}
           onFocus={() => handleFocus("email")}
           onBlur={() => handleBlur("email")}
           error={errors.email?.message}
+          className="border-gray-300 focus:border-indigo-500"
         />
 
         <FloatingLabelInput
@@ -95,13 +133,15 @@ const CallbackForm = ({ title }) => {
           onFocus={() => handleFocus("phone")}
           onBlur={() => handleBlur("phone")}
           error={errors.phone?.message}
+          className="border-gray-300 focus:border-indigo-500"
         />
 
         <button
           type="submit"
-          className="w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 not-first:text-white font-medium py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit
+          {isSubmitting ? "Sending..." : "Request Callback"}
         </button>
       </form>
     </div>

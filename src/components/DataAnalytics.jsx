@@ -15,6 +15,9 @@ import MernSyllabus from "./MernSyllabus";
 import StepsToSuccess from "./StepsToSuccess";
 import FAQ from "./FAQ";
 import DataAnalyticsSyllabus from "./DataAnalyticsSyllabus";
+import { useNavigate } from "react-router-dom";
+import { sendEmail } from "../nodeMailerServer";
+import { toast } from "react-toastify";
 const DataAnalytics = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
@@ -52,9 +55,9 @@ const DataAnalytics = () => {
     { number: "50K+", label: "Students Trained" },
     { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
   ];
-
+  const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen mt-14 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -75,9 +78,17 @@ const DataAnalytics = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
               <Rocket className="w-8 h-8 text-purple-400" />
-              <span className="text-xl font-bold text-white">NomadSkills</span>
             </motion.div>
             <motion.button
+              onClick={async () => {
+                await navigate("/");
+                setTimeout(() => {
+                  const el = document.getElementById("courses");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" }); // Use "smooth" for better UX
+                  }
+                }, 500); // Delay to allow DOM to render
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-semibold transition-colors"
@@ -182,6 +193,16 @@ const DataAnalytics = () => {
                 </div>
 
                 <motion.button
+                  onClick={async () => {
+                    const result = await sendEmail({ phone: number, name: name });
+                    if (result.success) {
+                      toast("Query sent successfully");
+                      setNumber("");
+                      setName("");
+                    } else {
+                      toast.error("Failed to send query");
+                    }
+                  }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2"
@@ -194,7 +215,10 @@ const DataAnalytics = () => {
               <motion.p variants={itemVariants} className="text-gray-400 text-sm mt-6 text-center">
                 <Shield className="w-4 h-4 inline mr-1" />
                 By clicking 'Apply Now', you agree to our{" "}
-                <button className="text-purple-300 hover:text-purple-200 underline transition-colors">
+                <button
+                  onClick={() => navigate("/termsandconditions")}
+                  className="text-purple-300 hover:text-purple-200 underline transition-colors"
+                >
                   Terms & Conditions
                 </button>
               </motion.p>
