@@ -1,6 +1,8 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
+import { MdLocationPin, MdMail } from "react-icons/md";
+import { IoCall } from "react-icons/io5";
 
 const Footer = () => {
   return (
@@ -51,16 +53,15 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 text-purple-300">Contact us</h3>
             <div className="space-y-3 text-gray-300">
               <p className="flex items-center justify-center lg:justify-end space-x-2">
-                <span>✉️</span>
+                <MdMail />
                 <span>contact@nomadskills.com</span>
               </p>
               <p className="flex items-center justify-center lg:justify-end space-x-2">
-                <span>📍</span>
+                <MdLocationPin />
                 <span>KPHB, Kukatpally, Hyderabad, 500072</span>
               </p>
               <p className="flex items-center justify-center lg:justify-end space-x-2">
-                <span>📞</span>
-                <span>+91 98765 43210</span>
+                <IoCall /> <span>+91 98765 43210</span>
               </p>
             </div>
           </div>

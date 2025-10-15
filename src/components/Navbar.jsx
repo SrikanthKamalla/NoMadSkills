@@ -33,7 +33,7 @@ const Navbar = () => {
 
   // Close dropdown when clicking outside, but don't close when clicking a dropdown-course-item
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       // if click target is inside dropdownRef => ignore
       if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
         return;
@@ -62,7 +62,7 @@ const Navbar = () => {
     }
   };
 
-  const handleNavClick = (item) => {
+  const handleNavClick = item => {
     // About and Contact scroll to footer when on home, otherwise navigate to home then scroll
     if (item.title === "About" || item.title === "Contact") {
       if (window.location.pathname === "/") {
@@ -80,12 +80,7 @@ const Navbar = () => {
   };
 
   // COURSE click handler — robust navigation
-  const handleCourseClick = (path) => {
-    // Logging helps debug if still failing in some envs
-    // eslint-disable-next-line no-console
-    console.log("🚀 Navigating to:", path);
-
-    // Close dropdowns immediately in state
+  const handleCourseClick = path => {
     setShowCourses(false);
     setIsOpen(false);
 
@@ -99,7 +94,7 @@ const Navbar = () => {
   };
 
   const handleCoursesDropdownToggle = () => {
-    setShowCourses((prev) => !prev);
+    setShowCourses(prev => !prev);
   };
 
   const handleLogoClick = () => {
@@ -116,7 +111,7 @@ const Navbar = () => {
           onClick={handleLogoClick}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => {
+          onKeyDown={e => {
             if (e.key === "Enter") handleLogoClick();
           }}
         >
@@ -144,7 +139,7 @@ const Navbar = () => {
 
           {/* Desktop Nav - Hidden on mobile */}
           <ul className="hidden lg:flex gap-6 items-center text-sm font-semibold">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <li
                 key={item.id}
                 className={`relative cursor-pointer ${
@@ -162,7 +157,7 @@ const Navbar = () => {
                       role="button"
                       tabIndex={0}
                       aria-expanded={showCourses}
-                      onKeyDown={(e) => {
+                      onKeyDown={e => {
                         if (e.key === "Enter" || e.key === " ") handleCoursesDropdownToggle();
                       }}
                     >
@@ -183,14 +178,14 @@ const Navbar = () => {
                         }}
                       >
                         <ul>
-                          {item.types.map((type) => (
+                          {item.types.map(type => (
                             <li
                               key={type.id}
                               className="dropdown-course-item px-4 py-3 hover:bg-purple-600 cursor-pointer border-b border-gray-700 last:border-b-0 transition-colors duration-200 font-medium text-sm"
                               onClick={() => handleCourseClick(type.path)}
                               role="menuitem"
                               tabIndex={0}
-                              onKeyDown={(e) => {
+                              onKeyDown={e => {
                                 if (e.key === "Enter") handleCourseClick(type.path);
                               }}
                             >
@@ -210,7 +205,7 @@ const Navbar = () => {
                     }}
                     role="button"
                     tabIndex={0}
-                    onKeyDown={(e) => {
+                    onKeyDown={e => {
                       if (e.key === "Enter") {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                         handleNavClick(item);
@@ -226,8 +221,12 @@ const Navbar = () => {
 
           {/* Mobile Navigation - Horizontal layout for tablets and small screens */}
           <ul className="hidden md:flex lg:hidden gap-4 items-center text-xs font-semibold">
-            {navItems.map((item) => (
-              <li key={item.id} className="relative cursor-pointer" ref={item.dropdown ? dropdownRef : null}>
+            {navItems.map(item => (
+              <li
+                key={item.id}
+                className="relative cursor-pointer"
+                ref={item.dropdown ? dropdownRef : null}
+              >
                 {item.dropdown ? (
                   <>
                     <div
@@ -238,14 +237,17 @@ const Navbar = () => {
                       aria-expanded={showCourses}
                     >
                       {item.title}
-                      <ChevronDown size={12} className={`transition-transform duration-300 ${showCourses ? "rotate-180" : ""}`} />
+                      <ChevronDown
+                        size={12}
+                        className={`transition-transform duration-300 ${showCourses ? "rotate-180" : ""}`}
+                      />
                     </div>
 
                     {/* Dropdown for tablet */}
                     {showCourses && (
                       <div className="absolute top-full left-0 mt-2 bg-gray-800 text-white shadow-xl rounded-lg w-48 overflow-hidden z-50 border border-gray-700">
                         <ul>
-                          {item.types.map((type) => (
+                          {item.types.map(type => (
                             <li
                               key={type.id}
                               className="dropdown-course-item px-3 py-2 hover:bg-purple-600 cursor-pointer border-b border-gray-700 last:border-b-0 transition-colors duration-200 font-medium text-xs"
@@ -280,7 +282,7 @@ const Navbar = () => {
           {/* Mobile Menu Button - Only for small screens */}
           <button
             className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
-            onClick={() => setIsOpen((s) => !s)}
+            onClick={() => setIsOpen(s => !s)}
             aria-expanded={isOpen}
             aria-label="Toggle menu"
           >
@@ -293,7 +295,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-gradient-to-br from-gray-800 via-purple-900 to-gray-800 px-4 py-4 absolute top-full left-0 right-0 shadow-xl border-t border-gray-700">
           <ul className="flex flex-col gap-1 text-sm font-medium">
-            {navItems.map((item) =>
+            {navItems.map(item =>
               item.dropdown ? (
                 <div key={item.id}>
                   <li
@@ -304,12 +306,15 @@ const Navbar = () => {
                     aria-expanded={showCourses}
                   >
                     <span>{item.title}</span>
-                    <ChevronDown className={`transition-transform duration-300 ${showCourses ? "rotate-180" : ""}`} size={16} />
+                    <ChevronDown
+                      className={`transition-transform duration-300 ${showCourses ? "rotate-180" : ""}`}
+                      size={16}
+                    />
                   </li>
                   {showCourses && (
                     <div className="ml-4 mt-1 bg-white/5 rounded-lg overflow-hidden">
                       <ul className="py-2">
-                        {item.types?.map((type) => (
+                        {item.types?.map(type => (
                           <li
                             key={type.id}
                             className="dropdown-course-item px-4 py-2.5 hover:bg-white/10 cursor-pointer border-b border-white/5 last:border-b-0 transition-colors duration-200 text-sm"

@@ -187,16 +187,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-    <!-- Performance Monitoring (optional) -->
-    <script>
-      // Basic performance monitoring
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-          console.log("Page load time:", loadTime, "ms");
-        }, 0);
-      });
-    </script>
   </body>
 </html>
