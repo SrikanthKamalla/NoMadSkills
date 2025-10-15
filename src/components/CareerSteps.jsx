@@ -274,7 +274,7 @@ export default function EnhancedCareerSteps() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#0f0824] via-[#352171] to-[#331a90] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 text-white overflow-hidden">
+    <section className="bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

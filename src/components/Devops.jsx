@@ -79,7 +79,6 @@ const Devops = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
               <Rocket className="w-8 h-8 text-purple-400" />
-              <span className="text-xl font-bold text-white">NomadSkills</span>
             </motion.div>
             <motion.button
               onClick={async () => {

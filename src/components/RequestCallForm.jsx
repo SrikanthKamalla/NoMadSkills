@@ -3,18 +3,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FloatingLabelInput from "./FloatingLabelInput";
+import { sendEmail } from "../nodeMailerServer";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .refine(val => val.includes("@"), {
-      message: "Email must include @",
-    })
-    .refine(val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), {
-      message: "Invalid email format",
-    }),
+  email: z.string().min(1, "Email is required").email("Invalid email format"),
   phone: z
     .string()
     .min(10, "Phone must be exactly 10 digits")
@@ -22,20 +15,29 @@ const schema = z.object({
     .regex(/^\d+$/, "Phone must contain only digits"),
 });
 
-const CallbackForm = ({ title }) => {
+const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
   const {
     register,
     handleSubmit,
     setValue,
     clearErrors,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(schema),
     mode: "onBlur",
   });
 
-  const [formValues, setFormValues] = useState({ name: "", email: "", phone: "" });
-  const [focusState, setFocusState] = useState({ name: false, email: false, phone: false });
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const [focusState, setFocusState] = useState({
+    name: false,
+    email: false,
+    phone: false,
+  });
 
   const handleChange = field => e => {
     let newValue = e.target.value;
@@ -48,13 +50,48 @@ const CallbackForm = ({ title }) => {
   };
 
   const handleFocus = field => setFocusState(prev => ({ ...prev, [field]: true }));
-  const handleBlur = field =>
+
+  const handleBlur = field => {
     setFocusState(prev => ({
       ...prev,
       [field]: formValues[field] !== "",
     }));
+  };
+  const onSubmit = async data => {
+    try {
+      const result = await sendEmail({
+        phone: data.phone,
+        name: data.name,
+        email: data.email,
+      });
 
-  const onSubmit = data => console.log("Form Data:", data);
+      if (result.success) {
+        // Show success message (replace with your toast library)
+        if (typeof onSuccess === "function") {
+          onSuccess("Query sent successfully! We'll get back to you shortly.");
+        }
+
+        // Close modal if onClose function is provided
+        if (typeof onClose === "function") {
+          onClose();
+        }
+
+        // Reset form
+        setFormValues({ name: "", email: "", phone: "" });
+        setFocusState({ name: false, email: false, phone: false });
+      } else {
+        // Handle error
+        if (typeof onSuccess === "function") {
+          onSuccess("Failed to send query. Please try again.", "error");
+        }
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      if (typeof onSuccess === "function") {
+        onSuccess("An error occurred. Please try again.", "error");
+      }
+    }
+  };
 
   return (
     <div>
@@ -77,7 +114,7 @@ const CallbackForm = ({ title }) => {
         <FloatingLabelInput
           id="email"
           label="Email"
-          type="text"
+          type="email"
           value={formValues.email}
           onChange={handleChange("email")}
           isFocused={focusState.email}
@@ -100,22 +137,11 @@ const CallbackForm = ({ title }) => {
         />
 
         <button
-          onClick={async () => {
-            const result = await sendEmail({
-              phone: formValues.phone,
-              name: formValues.name,
-              email: formValues.email,
-            });
-            if (result.success) {
-              toast("Query sent successfully");
-            } else {
-              toast.error("Failed to send query");
-            }
-          }}
           type="submit"
-          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Request Callback
+          {isSubmitting ? "Sending..." : "Request Callback"}
         </button>
       </form>
     </div>

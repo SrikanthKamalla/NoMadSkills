@@ -1,57 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/logo.webp" />
-    
-    <!-- Essential Viewport Tag for Mobile-First Indexing -->
+
+    <!-- Essential SEO Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4F46E5" />
 
     <!-- Primary Meta Tags -->
-    <title>NomadSkills - Master MERN Stack, Data Analytics & DevOps with Job Assistance</title>
-    <meta name="description" content="Master MERN Stack, Data Analytics & DevOps at NomadSkills. Industry-led courses, small batch sizes, and dedicated job assistance to launch your tech career." />
-    <meta name="keywords" content="MERN Stack course, Data Analytics training, DevOps, Full Stack Development, job assistance, tech courses, learn to code" />
-    <meta name="robots" content="index, follow" />
+    <title>NomadSkills - MERN Stack, Data Analytics & DevOps Courses with Job Assistance</title>
+    <meta
+      name="description"
+      content="Join NomadSkills for industry-led MERN Stack, Data Analytics & DevOps courses. Small batch sizes, expert mentors, and dedicated job assistance to launch your tech career. Enroll today!"
+    />
+    <meta
+      name="keywords"
+      content="MERN Stack course, Data Analytics training, DevOps course, Full Stack Development, web development, data science, cloud computing, job assistance, coding bootcamp, tech career"
+    />
+    <meta name="author" content="NomadSkills" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:150, max-image-preview:large, max-video-preview:-1"
+    />
 
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="NomadSkills - Master MERN Stack, Data Analytics & DevOps with Job Assistance" />
-    <meta property="og:description" content="Industry-led courses, small batch sizes, and dedicated job assistance to launch your tech career." />
+    <meta
+      property="og:title"
+      content="NomadSkills - MERN Stack, Data Analytics & DevOps Courses with Job Assistance"
+    />
+    <meta
+      property="og:description"
+      content="Industry-led tech courses with small batches and dedicated job assistance. Master MERN Stack, Data Analytics & DevOps to launch your tech career."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nomadskills.in/" />
-    <meta property="og:image" content="https://nomadskills.in/og-image.jpg" /> <!-- Replace with your actual image -->
+    <meta property="og:image" content="https://nomadskills.in/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NomadSkills - Tech Courses with Job Assistance" />
+    <meta property="og:site_name" content="NomadSkills" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NomadSkills - Master MERN Stack, Data Analytics & DevOps">
-    <meta name="twitter:description" content="Industry-led courses with job assistance.">
-    <meta name="twitter:image" content="https://nomadskills.in/twitter-image.jpg"> <!-- Replace with your actual image -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="NomadSkills - MERN Stack, Data Analytics & DevOps Courses"
+    />
+    <meta
+      name="twitter:description"
+      content="Industry-led tech courses with job assistance. Master MERN Stack, Data Analytics & DevOps."
+    />
+    <meta name="twitter:image" content="https://nomadskills.in/assets/twitter-image.webp" />
+    <meta name="twitter:image:alt" content="NomadSkills Tech Courses" />
+    <meta name="twitter:site" content="@nomadskills" />
+    <meta name="twitter:creator" content="@nomadskills" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://nomadskills.in/" />
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/src/main.jsx" as="script" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Course-Specific Structured Data (JSON-LD) -->
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NomadSkills",
-      "url": "https://nomadskills.in/",
-      "description": "NomadSkills provides industry-leading tech education courses in MERN Stack, Data Analytics, and DevOps with dedicated job assistance.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Your City",
-        "addressCountry": "Your Country"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://nomadskills.in/#organization",
+            "name": "NomadSkills",
+            "url": "https://nomadskills.in/",
+            "description": "NomadSkills provides industry-leading tech education courses in MERN Stack, Data Analytics, and DevOps with dedicated job assistance and career support.",
+            "logo": "https://nomadskills.in/assets/logo.webp",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bangalore",
+              "addressRegion": "Karnataka",
+              "addressCountry": "India"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-XXXXXXXXXX",
+              "contactType": "customer service",
+              "email": "contact@nomadskills.in"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/nomadskills",
+              "https://twitter.com/nomadskills",
+              "https://www.instagram.com/nomadskills"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://nomadskills.in/#website",
+            "url": "https://nomadskills.in/",
+            "name": "NomadSkills",
+            "description": "Tech education courses in MERN Stack, Data Analytics, and DevOps",
+            "publisher": {
+              "@id": "https://nomadskills.in/#organization"
+            },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Course",
+            "name": "MERN Stack Development Course",
+            "description": "Complete MERN Stack development course with hands-on projects and job assistance",
+            "provider": {
+              "@type": "Organization",
+              "name": "NomadSkills",
+              "sameAs": "https://nomadskills.in/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "Online Course"
+            }
+          },
+          {
+            "@type": "Course",
+            "name": "Data Analytics Course",
+            "description": "Comprehensive Data Analytics training with real-world projects and job placement assistance",
+            "provider": {
+              "@type": "Organization",
+              "name": "NomadSkills",
+              "sameAs": "https://nomadskills.in/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "Online Course"
+            }
+          },
+          {
+            "@type": "Course",
+            "name": "DevOps Engineering Course",
+            "description": "DevOps engineering training with cloud technologies and CI/CD pipeline implementation",
+            "provider": {
+              "@type": "Organization",
+              "name": "NomadSkills",
+              "sameAs": "https://nomadskills.in/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "Online Course"
+            }
+          }
+        ]
       }
-    }
+    </script>
+
+    <!-- Additional Schema for FAQ Page (if applicable) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What courses does NomadSkills offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer comprehensive courses in MERN Stack Development, Data Analytics, and DevOps Engineering with job assistance and career support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide job assistance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we provide dedicated job assistance including resume building, interview preparation, and placement support to help you launch your tech career."
+            }
+          }
+        ]
+      }
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Additional Schema Markup can be added here or injected by your React app -->
+    <!-- Performance Monitoring (optional) -->
+    <script>
+      // Basic performance monitoring
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+          console.log("Page load time:", loadTime, "ms");
+        }, 0);
+      });
+    </script>
   </body>
 </html>

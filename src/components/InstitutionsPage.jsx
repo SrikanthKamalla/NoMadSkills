@@ -1,7 +1,9 @@
 import React from "react";
 import { CheckCircle, Clock, BookOpen, Users, Award, FileText } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Instructions = () => {
+  const navigate = useNavigate();
   const steps = [
     {
       icon: <BookOpen className="w-6 h-6" />,
@@ -172,7 +174,13 @@ const Instructions = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={() => {
+              navigate("/");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
             Start Your Learning Journey
           </button>
         </div>
