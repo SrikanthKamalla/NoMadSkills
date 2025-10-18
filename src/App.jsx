@@ -17,9 +17,10 @@ import { ToastContainer } from "react-toastify";
 const MainComponent = () => {
   return (
     <>
-      {/* <FloatingLabelInput></FloatingLabelInput> */}
       <Navbar />
-      <Outlet />
+      <main className="pt-13">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
@@ -27,7 +28,7 @@ const MainComponent = () => {
 
 const App = () => {
   useEffect(() => {
-    // sendEmail(); // ❌ You can’t run backend functions in frontend
+    // sendEmail();
   }, []);
 
   return (

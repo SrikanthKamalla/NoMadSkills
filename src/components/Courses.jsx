@@ -92,10 +92,10 @@ const Courses = () => {
   const navigate = useNavigate(); // ✅ Fixed: useNavigate inside component
   const currentCourse = courses.find(c => c.id === selected);
 
-  const handleViewProgram = (course) => {
+  const handleViewProgram = course => {
     // ✅ Scroll to top before navigation
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     // ✅ Navigate after a small delay to ensure scroll completes
     setTimeout(() => {
       navigate(course.navigateTo);
@@ -103,7 +103,10 @@ const Courses = () => {
   };
 
   return (
-    <div id="courses" className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-hidden py-5 px-4">
+    <div
+      id="courses"
+      className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-hidden py-5 px-4"
+    >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-40 right-20 w-24 h-24 bg-cyan-400 rounded-full blur-xl"></div>

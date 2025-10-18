@@ -3,7 +3,7 @@ import { Shield, FileText, AlertCircle, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const TermsAndConditions = () => {
-      const navigate = useNavigate();
+  const navigate = useNavigate();
   const sections = [
     {
       title: "Enrollment & Registration",
