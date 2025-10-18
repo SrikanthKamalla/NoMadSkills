@@ -10,7 +10,7 @@ const FloatingLabelInput = ({
   onBlur,
 }) => {
   return (
-    <div className="relative mb-2">
+    <div className="relative">
       <input
         id={id}
         type={type}

@@ -106,6 +106,7 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
   const onSubmit = useCallback(
     async data => {
       try {
+        console.log(data);
         const result = await sendEmail({
           phone: data.phone,
           name: data.name,
@@ -146,9 +147,9 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
       <h2 className="text-gray-800 text-2xl font-semibold text-center mb-2">{title}</h2>
       <p className="text-gray-600 text-center mb-6">We'll get back to you shortly</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)}>
         {/* Programs Dropdown */}
-        <div className="relative">
+        <div className="relative mt-6">
           <div
             className={`w-full border-2 rounded-lg px-3 py-3 pt-4 focus:outline-none focus:ring-2 focus:ring-[#0d77cf] focus:border-[#0d77cf] cursor-pointer transition-all duration-200 ${
               errors.program
@@ -199,9 +200,12 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
             </div>
           )}
 
-          {errors.program && (
+          {/* {errors.program && (
             <p className="h-5 mt-1 text-red-500 text-sm">{errors.program.message}</p>
-          )}
+          )} */}
+          <div className="h-5 mt-1">
+            {errors.program && <p className="text-red-500 text-sm">{errors.program.message}</p>}
+          </div>
         </div>
 
         <FloatingLabelInput
