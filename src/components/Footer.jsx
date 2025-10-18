@@ -7,9 +7,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Footer = () => {
-  const primaryColor = "#0d77cf";
-  const secondaryColor = "#7ac3ff";
-
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -72,7 +69,6 @@ const Footer = () => {
     <motion.footer
       id="footer"
       className="bg-[#0d77cf] text-white py-12"
-      style={{ backgroundColor: primaryColor }}
       ref={ref}
       variants={containerVariants}
       initial="hidden"
@@ -158,6 +154,17 @@ const Footer = () => {
                   <span>contact@nomadskills.com</span>
                 </span>
               </motion.p>
+              <motion.p
+                className="flex items-center justify-center lg:justify-end space-x-3"
+                variants={contactItemVariants}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+                  <IoCall className="text-white text-lg" />
+                </motion.span>
+                <span className="text-base">+91 98765 43210</span>
+              </motion.p>
 
               <motion.p
                 className="flex flex-col items-center justify-center lg:justify-end space-y-2"
@@ -169,7 +176,7 @@ const Footer = () => {
                   <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
                     <MdLocationPin className="text-white text-lg flex-shrink-0 mt-1" />
                   </motion.span>
-                  <span className="text-base text-left">
+                  <span className="text-base text-center lg:text-right">
                     5-30, Sri Rama Towers, Opp New Govt Junior College,
                     <br />
                     Sangeet Nagar, Kukatpally, Hyderabad - 500072,
@@ -177,18 +184,6 @@ const Footer = () => {
                     Telangana, India.
                   </span>
                 </span>
-              </motion.p>
-
-              <motion.p
-                className="flex items-center justify-center lg:justify-end space-x-3"
-                variants={contactItemVariants}
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
-                  <IoCall className="text-white text-lg" />
-                </motion.span>
-                <span className="text-base">+91 98765 43210</span>
               </motion.p>
             </motion.div>
           </motion.div>
