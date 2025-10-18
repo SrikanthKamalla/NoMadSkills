@@ -114,7 +114,7 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
         <FloatingLabelInput
           id="email"
           label="Email"
-          type="email"
+          type="text"
           value={formValues.email}
           onChange={handleChange("email")}
           isFocused={focusState.email}
@@ -139,7 +139,7 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#0d77cf] text-white font-semibold py-3 px-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Sending..." : "Request Callback"}
         </button>

@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 const Modal = ({ isOpen, onClose, children, width = "max-w-md" }) => {
   // Handle escape key press
   useEffect(() => {
-    const handleEscape = (e) => {
+    const handleEscape = e => {
       if (e.key === "Escape") {
         onClose();
       }
@@ -22,7 +22,7 @@ const Modal = ({ isOpen, onClose, children, width = "max-w-md" }) => {
   }, [isOpen, onClose]);
 
   // Handle backdrop click
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, children, width = "max-w-md" }) => {
   if (!isOpen) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
       onClick={handleBackdropClick}
     >
@@ -48,9 +48,7 @@ const Modal = ({ isOpen, onClose, children, width = "max-w-md" }) => {
           </button>
         </div>
 
-        <div className="px-6 pb-6">
-          {children}
-        </div>
+        <div className="px-6 pb-6">{children}</div>
       </div>
     </div>
   );
