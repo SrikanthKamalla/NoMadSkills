@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Play,
   Star,
@@ -301,11 +301,21 @@ const StepsToSuccess = () => {
               </motion.div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{activeStepData.title}</h3>
               <p className="text-blue-600 font-semibold">{activeStepData.subtitle}</p>
+
+              {/* Progress Indicator */}
+              <div className="mt-4 flex items-center justify-center space-x-2">
+                <div className="text-sm text-gray-500">
+                  Step {activeStep} of {steps.length}
+                </div>
+              </div>
             </div>
 
             {/* Orbiting Steps */}
             {steps.map((step, index) => {
               const position = getStepPosition(index, steps.length);
+              const isActive = activeStep === step.id;
+              const isCompleted = step.id < activeStep;
+
               return (
                 <motion.button
                   key={step.id}
@@ -323,14 +333,16 @@ const StepsToSuccess = () => {
                   onMouseLeave={() => setIsHovered(null)}
                   onClick={() => setActiveStep(step.id)}
                   className={`absolute w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-2xl transition-all duration-300 ${
-                    activeStep === step.id
+                    isActive
                       ? `bg-gradient-to-r ${step.gradient} ring-4 ring-white/50 scale-110`
-                      : isHovered === step.id
+                      : isCompleted
                         ? `bg-gradient-to-r ${step.gradient} ring-2 ring-white/30`
-                        : "bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700"
+                        : isHovered === step.id
+                          ? `bg-gradient-to-r ${step.gradient} ring-2 ring-white/30`
+                          : "bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700"
                   }`}
                 >
-                  {step.number}
+                  {isCompleted ? <CheckCircle className="w-6 h-6" /> : step.number}
                 </motion.button>
               );
             })}
@@ -339,6 +351,8 @@ const StepsToSuccess = () => {
             <svg className="absolute w-full h-full pointer-events-none">
               {steps.map((step, index) => {
                 const position = getStepPosition(index, steps.length);
+                const isConnected = step.id <= activeStep;
+
                 return (
                   <motion.line
                     key={step.id}
@@ -348,9 +362,9 @@ const StepsToSuccess = () => {
                     y2={`${50 + position.y / 4}%`}
                     stroke="currentColor"
                     strokeWidth="1"
-                    className="text-gray-300"
+                    className={`${isConnected ? "text-blue-500" : "text-gray-300"}`}
                     initial={{ pathLength: 0 }}
-                    animate={{ pathLength: activeStep >= step.id ? 1 : 0 }}
+                    animate={{ pathLength: isConnected ? 1 : 0 }}
                     transition={{ duration: 1, delay: index * 0.1 }}
                   />
                 );
@@ -461,10 +475,39 @@ const StepsToSuccess = () => {
                 ))}
               </div>
 
-              {/* Action Button */}
-            </div>
+              {/* Navigation Buttons */}
+              <div className="flex justify-between mt-8">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveStep(Math.max(1, activeStep - 1))}
+                  disabled={activeStep === 1}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                    activeStep === 1
+                      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                >
+                  <ChevronRight className="w-5 h-5 rotate-180" />
+                  <span>Previous</span>
+                </motion.button>
 
-            {/* Progress Indicator */}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveStep(Math.min(steps.length, activeStep + 1))}
+                  disabled={activeStep === steps.length}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                    activeStep === steps.length
+                      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      : "bg-purple-500 text-white hover:bg-purple-600"
+                  }`}
+                >
+                  <span>Next</span>
+                  <ChevronRight className="w-5 h-5" />
+                </motion.button>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

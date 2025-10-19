@@ -13,6 +13,11 @@ import {} from "lucide-react";
 import Instructions from "./components/InstitutionsPage";
 import TermsAndConditions from "./components/TermaANdConditions";
 import { ToastContainer } from "react-toastify";
+<<<<<<< Updated upstream
+=======
+import DataScience from "./components/DataScience";
+// import { sendEmail } from "./nodeMailerServer"; // ⚠️ Don't import server code into React
+>>>>>>> Stashed changes
 
 const MainComponent = () => {
   return (
@@ -50,6 +55,10 @@ const App = () => {
           <Route path="merncourse" element={<MernCourse />} />
           <Route path="devops" element={<Devops />} />
           <Route path="dataanalytics" element={<DataAnalytics />} />
+<<<<<<< Updated upstream
+=======
+          <Route path="datascience" element={<DataScience />} />
+>>>>>>> Stashed changes
           <Route path="institutions" element={<Instructions />} />
           <Route path="termsandconditions" element={<TermsAndConditions />} />
         </Route>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ChevronRight,
   Code,
@@ -19,255 +19,308 @@ import {
   Star,
   Zap,
   Cpu,
-  TrendingUp,
   Brain,
-  Globe,
-  Briefcase,
-  LineChart,
-  TestTube,
+  Cloud,
   GitBranch,
+  MessageCircle,
+  Container,
   Award,
+  Terminal,
 } from "lucide-react";
 
-const DataAnalyticsSyllabus = () => {
+const DataScienceSyllabus = () => {
   const [activeModule, setActiveModule] = useState(1);
 
   // Data structured from the PDF content
   const syllabusData = [
     {
       id: 1,
-      title: "Analytics Mindset & Excel Foundations",
-      icon: <BarChart3 className="w-6 h-6" />,
-      duration: "2 Weeks",
+      title: "Data & Machine Learning Foundations",
+      icon: <Brain className="w-6 h-6" />,
+      duration: "6 Weeks",
       level: "Beginner",
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
       borderColor: "border-blue-200",
       topics: [
-        "Thinking like an Analyst",
-        "KPI trees development",
-        "Tidy data principles",
-        "Excel formulas and functions",
-        "Pivot tables mastery",
-        "XLOOKUP advanced usage",
-        "Power Query for data transformation",
+        "Python syntax, loops, functions, OOP",
+        "NumPy, Pandas, Matplotlib mastery",
+        "Data wrangling and EDA in Jupyter",
+        "SQL: SELECT, WHERE, GROUP BY, JOIN",
+        "Data visualization with Seaborn, Plotly",
+        "BI dashboards with Tableau/Power BI",
+        "Probability & statistical distributions",
+        "Hypothesis testing fundamentals",
+        "Supervised ML: regression & classification",
+        "Model evaluation metrics",
       ],
-      projects: ["Retail KPI Workbook"],
-      skills: ["Excel", "Power Query", "Data Thinking", "KPI Analysis"],
-      outcome: "Build strong analytical foundation and master Excel for business analysis",
+      projects: [
+        "Data Cleaning & Exploratory Analysis",
+        "Interactive Sales Dashboard",
+        "Predictive Customer Churn Model",
+      ],
+      skills: ["Python", "SQL", "Pandas", "EDA", "Machine Learning"],
+      outcome: "Build strong programming, data, and ML fundamentals",
     },
     {
       id: 2,
-      title: "SQL for Data Analysts",
-      icon: <Database className="w-6 h-6" />,
-      duration: "3 Weeks",
-      level: "Beginner",
+      title: "Advanced ML & Model Optimization",
+      icon: <Cpu className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Intermediate",
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
       borderColor: "border-green-200",
       topics: [
-        "SELECT queries & filtering",
-        "WHERE clauses & conditions",
-        "GROUP BY & aggregate functions",
-        "JOINs & table relationships",
-        "Common Table Expressions (CTEs)",
-        "Window Functions for analytics",
-        "DateTime functions",
-        "Subqueries & nested queries",
+        "Unsupervised learning: K-Means, PCA",
+        "Feature selection & engineering",
+        "Cross-validation techniques",
+        "Hyperparameter tuning",
+        "Model optimization strategies",
+        "Advanced evaluation metrics",
+        "Ensemble methods",
+        "Clustering algorithms",
+        "Dimensionality reduction",
+        "Model interpretability",
       ],
-      projects: ["Food Delivery Case Analysis"],
-      skills: ["SQL", "PostgreSQL", "Query Optimization", "Data Analysis"],
-      outcome: "Write production-ready SQL queries for complex data analysis",
+      projects: ["Customer Segmentation Model"],
+      skills: ["Scikit-learn", "Model Optimization", "Feature Engineering", "Clustering"],
+      outcome: "Master unsupervised learning and model optimization techniques",
     },
     {
       id: 3,
-      title: "Python for Data Wrangling & EDA",
-      icon: <Code className="w-6 h-6" />,
-      duration: "3 Weeks",
-      level: "Intermediate",
-      color: "from-yellow-500 to-orange-500",
-      bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
-      borderColor: "border-yellow-200",
-      topics: [
-        "Python programming basics",
-        "Pandas for data cleaning",
-        "Data reshaping techniques",
-        "Exploratory Data Analysis (EDA)",
-        "Data visualization with matplotlib/plotly",
-        "Working with APIs",
-        "CSV/JSON data imports",
-        "Statistical analysis with Python",
-      ],
-      projects: ["E-commerce Customer Segmentation"],
-      skills: ["Python", "Pandas", "EDA", "Data Visualization", "APIs"],
-      outcome: "Clean, analyze, and visualize data using Python for business insights",
-    },
-    {
-      id: 4,
-      title: "Statistics for Business Decisions",
-      icon: <TrendingUp className="w-6 h-6" />,
-      duration: "2 Weeks",
+      title: "Deep Learning & Neural Networks",
+      icon: <Brain className="w-6 h-6" />,
+      duration: "5 Weeks",
       level: "Intermediate",
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
       borderColor: "border-purple-200",
       topics: [
-        "Statistical distributions",
-        "Sampling techniques",
-        "Hypothesis testing fundamentals",
-        "T-tests implementation",
-        "Chi-square tests",
-        "Correlation vs causation",
-        "A/B testing methodology",
-        "Business experiment design",
+        "Neural network fundamentals",
+        "Feedforward & backpropagation",
+        "TensorFlow & PyTorch frameworks",
+        "CNN architectures for images",
+        "Activation functions & optimization",
+        "Regularization techniques",
+        "Transfer learning",
+        "Computer vision applications",
+        "Neural network training",
+        "Model architecture design",
       ],
-      projects: ["Landing Page A/B Test"],
-      skills: ["Statistics", "A/B Testing", "Hypothesis Testing", "Business Experiments"],
-      outcome: "Apply statistical methods to make data-driven business decisions",
+      projects: ["Image Classifier using CNN"],
+      skills: ["TensorFlow", "PyTorch", "CNN", "Deep Learning"],
+      outcome: "Build and train deep neural networks for complex tasks",
     },
     {
-      id: 5,
-      title: "Data Visualization & BI Dashboards",
-      icon: <Layout className="w-6 h-6" />,
-      duration: "3 Weeks",
+      id: 4,
+      title: "Natural Language Processing",
+      icon: <MessageCircle className="w-6 h-6" />,
+      duration: "4 Weeks",
       level: "Intermediate",
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50",
-      borderColor: "border-indigo-200",
-      topics: [
-        "Chart types selection",
-        "Dashboard design principles",
-        "Data modeling for BI",
-        "DAX & calculated fields",
-        "Row-level security",
-        "Drill-through functionality",
-        "Power BI/Tableau mastery",
-        "Executive reporting",
-      ],
-      projects: ["Executive Sales Dashboard"],
-      skills: ["Power BI", "Tableau", "Dashboard Design", "Data Storytelling", "DAX"],
-      outcome: "Create compelling BI dashboards for executive decision-making",
-    },
-    {
-      id: 6,
-      title: "Business & Product Analytics",
-      icon: <Briefcase className="w-6 h-6" />,
-      duration: "2 Weeks",
-      level: "Intermediate",
-      color: "from-rose-500 to-pink-500",
-      bgColor: "bg-gradient-to-br from-rose-50 to-pink-50",
-      borderColor: "border-rose-200",
-      topics: [
-        "Funnel analysis techniques",
-        "Cohort analysis implementation",
-        "Churn & retention analysis",
-        "Customer Acquisition Cost (CAC)",
-        "Lifetime Value (LTV)",
-        "Marketing mix modeling",
-        "Product metrics tracking",
-        "SaaS business analytics",
-      ],
-      projects: ["SaaS Churn Dashboard", "App Funnel Report"],
-      skills: ["Funnel Analysis", "Cohort Analysis", "Product Metrics", "SaaS Analytics"],
-      outcome: "Analyze business performance and product metrics for growth",
-    },
-    {
-      id: 7,
-      title: "Automation & Collaboration",
-      icon: <GitBranch className="w-6 h-6" />,
-      duration: "1 Week",
-      level: "Advanced",
-      color: "from-gray-500 to-blue-500",
-      bgColor: "bg-gradient-to-br from-gray-50 to-blue-50",
-      borderColor: "border-gray-200",
-      topics: [
-        "Scheduled refresh automation",
-        "ETL pipeline basics",
-        "dbt concepts introduction",
-        "Git & GitHub for analysts",
-        "Reproducible analysis",
-        "Documentation best practices",
-        "Version control for data",
-        "Collaborative workflows",
-      ],
-      projects: ["Automated Weekly BI Report"],
-      skills: ["Git", "GitHub", "ETL", "Automation", "Documentation"],
-      outcome: "Automate reporting and collaborate effectively using modern tools",
-    },
-    {
-      id: 8,
-      title: "Domain Specialization Track",
-      icon: <Target className="w-6 h-6" />,
-      duration: "2 Weeks",
-      level: "Advanced",
-      color: "from-teal-500 to-green-500",
-      bgColor: "bg-gradient-to-br from-teal-50 to-green-50",
-      borderColor: "border-teal-200",
-      topics: [
-        "Marketing Analytics deep dive",
-        "Product Analytics specialization",
-        "Finance/RevOps analytics",
-        "Domain-specific KPIs",
-        "Industry case studies",
-        "Advanced query writing",
-        "Custom dashboard development",
-        "Business stakeholder management",
-      ],
-      projects: ["Domain-Specific Dashboard + Queries"],
-      skills: ["Domain Expertise", "Advanced SQL", "Custom Dashboards", "Stakeholder Management"],
-      outcome: "Specialize in your chosen domain and build portfolio-ready projects",
-    },
-    {
-      id: 9,
-      title: "Capstone & Placement Prep",
-      icon: <Award className="w-6 h-6" />,
-      duration: "2 Weeks",
-      level: "Advanced",
       color: "from-orange-500 to-red-500",
       bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
       borderColor: "border-orange-200",
       topics: [
-        "Capstone project execution",
-        "Domain/business problem selection",
+        "Text preprocessing & cleaning",
+        "Word embeddings & vectorization",
+        "RNN, LSTM architectures",
+        "Attention mechanisms",
+        "Sentiment analysis",
+        "Text classification",
+        "Named Entity Recognition",
+        "Text generation basics",
+        "NLP pipelines",
+        "Transformer architectures",
+      ],
+      projects: ["Twitter Sentiment Analyzer"],
+      skills: ["NLP", "Text Processing", "LSTM", "Sentiment Analysis"],
+      outcome: "Process and analyze text data using advanced NLP techniques",
+    },
+    {
+      id: 5,
+      title: "Model Deployment & MLOps",
+      icon: <Cloud className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Advanced",
+      color: "from-indigo-500 to-purple-500",
+      bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50",
+      borderColor: "border-indigo-200",
+      topics: [
+        "Building APIs with FastAPI/Flask",
+        "Containerization with Docker",
+        "Cloud deployment: AWS/GCP/Heroku",
+        "Model serving strategies",
+        "ML pipeline automation",
+        "Version control for ML",
+        "Monitoring & logging",
+        "CI/CD for machine learning",
+        "Model registry",
+        "Production best practices",
+      ],
+      projects: ["ML API Service (End-to-End Deployment)"],
+      skills: ["FastAPI", "Docker", "AWS", "MLOps", "Deployment"],
+      outcome: "Deploy and maintain ML models in production environments",
+    },
+    {
+      id: 6,
+      title: "Data Engineering & Pipelines",
+      icon: <Database className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Advanced",
+      color: "from-teal-500 to-blue-500",
+      bgColor: "bg-gradient-to-br from-teal-50 to-blue-50",
+      borderColor: "border-teal-200",
+      topics: [
+        "Data ingestion strategies",
+        "ETL/ELT workflows",
+        "Spark for big data processing",
+        "Data pipeline automation",
+        "Git/GitHub for version control",
+        "Data quality monitoring",
+        "Workflow orchestration",
+        "Stream processing",
+        "Data warehouse concepts",
+        "Pipeline optimization",
+      ],
+      projects: ["Automated Data Pipeline + Model Deployment"],
+      skills: ["Spark", "ETL", "Data Pipelines", "Git", "Automation"],
+      outcome: "Build scalable data pipelines and engineering workflows",
+    },
+    {
+      id: 7,
+      title: "Generative AI & LLM Fundamentals",
+      icon: <Zap className="w-6 h-6" />,
+      duration: "5 Weeks",
+      level: "Advanced",
+      color: "from-yellow-500 to-orange-500",
+      bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
+      borderColor: "border-yellow-200",
+      topics: [
+        "GPT, LLaMA model architectures",
+        "Hugging Face ecosystem",
+        "Tokenization & embeddings",
+        "Vector databases",
+        "Prompt engineering",
+        "Text generation techniques",
+        "Model fine-tuning concepts",
+        "RAG architecture",
+        "AI safety & ethics",
+        "Multi-modal models",
+      ],
+      projects: ["Custom Prompts & Embedding Search Lab"],
+      skills: ["GPT", "LLaMA", "Hugging Face", "Prompt Engineering", "Vector DB"],
+      outcome: "Understand and work with state-of-the-art generative AI models",
+    },
+    {
+      id: 8,
+      title: "Fine-Tuning & Custom LLM Applications",
+      icon: <Code className="w-6 h-6" />,
+      duration: "5 Weeks",
+      level: "Advanced",
+      color: "from-red-500 to-pink-500",
+      bgColor: "bg-gradient-to-br from-red-50 to-pink-50",
+      borderColor: "border-red-200",
+      topics: [
+        "Fine-tuning with LoRA/PEFT adapters",
+        "Retrieval Augmented Generation (RAG)",
+        "Custom chatbot development",
+        "Document Q&A systems",
+        "Model optimization for deployment",
+        "Custom training pipelines",
+        "Evaluation of LLM applications",
+        "Multi-turn conversations",
+        "Knowledge integration",
+        "Application architecture",
+      ],
+      projects: ["Custom Q&A or AI Assistant App"],
+      skills: ["Fine-tuning", "RAG", "Chatbots", "LoRA", "PEFT"],
+      outcome: "Build custom generative AI applications with fine-tuned models",
+    },
+    {
+      id: 9,
+      title: "Capstone Project & Career Readiness",
+      icon: <Award className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Advanced",
+      color: "from-purple-500 to-indigo-500",
+      bgColor: "bg-gradient-to-br from-purple-50 to-indigo-50",
+      borderColor: "border-purple-200",
+      topics: [
+        "End-to-end AI product development",
+        "Data collection & preprocessing",
+        "Predictive + generative AI integration",
+        "Cloud hosting & CI/CD",
+        "Mock interviews & DSA prep",
+        "Resume & LinkedIn optimization",
         "GitHub portfolio development",
-        "BI dashboard creation",
-        "Business presentation skills",
-        "Resume optimization",
-        "LinkedIn profile enhancement",
-        "Mock interviews practice",
+        "Project presentation skills",
+        "Technical communication",
+        "Career mentorship",
       ],
-      projects: ["Capstone Project", "GitHub Portfolio", "Business Presentation"],
-      skills: [
-        "Portfolio Development",
-        "Interview Prep",
-        "Business Communication",
-        "Project Management",
+      projects: [
+        "AI-Powered Customer Support System",
+        "Document Summarizer + Q&A",
+        "Recommender + Chatbot System",
       ],
-      outcome: "Graduate with a strong portfolio and be interview-ready for analyst roles",
+      skills: ["End-to-End Development", "Portfolio Building", "Interview Prep", "Career Strategy"],
+      outcome: "Graduate with deployable projects and career-ready skills",
     },
   ];
 
   const activeModuleData = syllabusData.find(module => module.id === activeModule);
 
-  // Updated stats based on PDF data
+  // Stats based on PDF data
   const stats = [
-    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "3 Months" },
+    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "5 Months" },
     { icon: <BookOpen className="w-5 h-5" />, label: "Modules", value: "9" },
-    { icon: <Target className="w-5 h-5" />, label: "Projects", value: "6-8 + Capstone" },
-    { icon: <CheckCircle className="w-5 h-5" />, label: "Skills", value: "15+" },
+    { icon: <Target className="w-5 h-5" />, label: "Projects", value: "8+ Mini + Capstone" },
+    { icon: <CheckCircle className="w-5 h-5" />, label: "Skills", value: "25+" },
     { icon: <Star className="w-5 h-5" />, label: "Mode", value: "Hybrid" },
   ];
 
   // Career roles from PDF
   const careerRoles = [
-    "Data Analyst / Business Analyst",
-    "BI Analyst / Reporting Analyst",
-    "Junior Analytics Engineer",
-    "Marketing/Product/Finance Analyst",
+    "Data Scientist",
+    "Machine Learning Engineer",
+    "AI Developer",
+    "GenAI Specialist",
+    "Data Analyst",
+    "MLOps Engineer",
+  ];
+
+  // Tools covered from PDF
+  const tools = [
+    "Python",
+    "SQL",
+    "scikit-learn",
+    "TensorFlow",
+    "PyTorch",
+    "Pandas",
+    "NumPy",
+    "Spark",
+    "Matplotlib",
+    "Seaborn",
+    "Tableau",
+    "Power BI",
+    "FastAPI",
+    "Streamlit",
+    "Flask",
+    "Gradio",
+    "AWS",
+    "GCP",
+    "Azure",
+    "Docker",
+    "GitHub",
+    "GPT",
+    "LLaMA",
+    "Hugging Face",
+    "LangChain",
+    "ChromaDB",
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50/30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <motion.div
@@ -280,30 +333,30 @@ const DataAnalyticsSyllabus = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
-            className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6"
+            className="inline-flex items-center space-x-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full mb-6"
           >
             <Sparkles className="w-4 h-4" />
             <span className="font-semibold text-sm uppercase tracking-wide">
-              Industry-Aligned Program
+              Full Stack AI & Data Science
             </span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Become a{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Job-Ready Data Analyst
+            Become an{" "}
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Industry-Ready AI Professional
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Extract, analyze, and visualize data to solve real-world business problems through
-            hands-on projects, domain case studies, and industry-standard tools.
+            Master Machine Learning, Deep Learning, and Generative AI through hands-on projects,
+            real-world applications, and deployment-ready portfolio development.
           </p>
 
           {/* Career Roles */}
           <div className="max-w-2xl mx-auto mb-12">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Ideal Roles After This Program:
+              Target Roles After This Program:
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {careerRoles.map((role, index) => (
@@ -312,7 +365,7 @@ const DataAnalyticsSyllabus = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white px-4 py-2 rounded-full border border-blue-200 text-blue-800 font-medium shadow-sm"
+                  className="bg-white px-4 py-2 rounded-full border border-purple-200 text-purple-800 font-medium shadow-sm"
                 >
                   {role}
                 </motion.span>
@@ -331,7 +384,7 @@ const DataAnalyticsSyllabus = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 text-center group hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex justify-center text-blue-600 mb-2 group-hover:scale-110 transition-transform">
+                <div className="flex justify-center text-purple-600 mb-2 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
                 <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
@@ -341,7 +394,7 @@ const DataAnalyticsSyllabus = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Syllabus Layout - Fixed Height Issues */}
+        {/* Syllabus Layout */}
         <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
           {/* Module Navigation */}
           <motion.div
@@ -352,8 +405,8 @@ const DataAnalyticsSyllabus = () => {
           >
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center space-x-2">
-                <BookOpen className="w-5 h-5 text-blue-600" />
-                <span>20-Week Learning Path</span>
+                <BookOpen className="w-5 h-5 text-purple-600" />
+                <span>5-Month Learning Path</span>
               </h3>
 
               <div className="space-y-3 max-h-[600px] overflow-y-auto">
@@ -365,8 +418,8 @@ const DataAnalyticsSyllabus = () => {
                     onClick={() => setActiveModule(module.id)}
                     className={`w-full text-left p-4 rounded-xl transition-all duration-300 border-2 ${
                       activeModule === module.id
-                        ? `border-blue-500 bg-blue-50 shadow-md`
-                        : `border-gray-100 bg-white hover:border-blue-300 hover:bg-blue-25`
+                        ? `border-purple-500 bg-purple-50 shadow-md`
+                        : `border-gray-100 bg-white hover:border-purple-300 hover:bg-purple-25`
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -399,7 +452,7 @@ const DataAnalyticsSyllabus = () => {
                       </div>
                       <ChevronRight
                         className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 ${
-                          activeModule === module.id ? "rotate-90 text-blue-600" : ""
+                          activeModule === module.id ? "rotate-90 text-purple-600" : ""
                         }`}
                       />
                     </div>
@@ -409,7 +462,7 @@ const DataAnalyticsSyllabus = () => {
             </div>
           </motion.div>
 
-          {/* Module Details - Fixed Height Issues */}
+          {/* Module Details */}
           <motion.div
             key={activeModule}
             initial={{ opacity: 0, x: 20 }}
@@ -430,7 +483,7 @@ const DataAnalyticsSyllabus = () => {
                       </div>
                       <div className="flex-1">
                         <h2 className="text-2xl lg:text-3xl font-bold">{activeModuleData.title}</h2>
-                        <p className="text-blue-100 mt-1 text-sm lg:text-base">
+                        <p className="text-purple-100 mt-1 text-sm lg:text-base">
                           {activeModuleData.outcome}
                         </p>
                       </div>
@@ -455,13 +508,13 @@ const DataAnalyticsSyllabus = () => {
                 </div>
               </div>
 
-              {/* Module Content - Fixed Layout */}
+              {/* Module Content */}
               <div className="p-6 lg:p-8">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                   {/* Topics Section */}
                   <div className="lg:col-span-2">
                     <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
-                      <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                      <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-purple-600" />
                       <span>What You'll Learn</span>
                     </h3>
                     <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
@@ -538,7 +591,7 @@ const DataAnalyticsSyllabus = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full mt-6 lg:mt-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 lg:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-3"
+                  className="w-full mt-6 lg:mt-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 lg:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-3"
                 >
                   <BookOpen className="w-5 h-5" />
                   <span>Start This Module</span>
@@ -557,47 +610,22 @@ const DataAnalyticsSyllabus = () => {
           className="mt-16 bg-white rounded-2xl shadow-lg border border-gray-100 p-8"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Tools Covered in This Program
+            Tools & Technologies Covered
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Programming & Querying Tools */}
-            <div className="text-center">
-              <div className="bg-blue-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Code className="w-6 h-6 text-blue-600" />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-4">Programming & Querying</h4>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div>Python (pandas, numpy, matplotlib, plotly, scipy)</div>
-                <div>SQL (PostgreSQL/MySQL, BigQuery basics)</div>
-                <div>Jupyter Notebook, VS Code, GitHub</div>
-              </div>
-            </div>
-
-            {/* Visualization Tools */}
-            <div className="text-center">
-              <div className="bg-green-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Layout className="w-6 h-6 text-green-600" />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-4">Visualization Tools</h4>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div>Power BI (primary)</div>
-                <div>Tableau (secondary)</div>
-              </div>
-            </div>
-
-            {/* Data Analysis Tools */}
-            <div className="text-center">
-              <div className="bg-purple-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Database className="w-6 h-6 text-purple-600" />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-4">Data Analysis Tools</h4>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div>Excel/Google Sheets (Power Query, pivots)</div>
-                <div>DBeaver / Beekeeper for SQL</div>
-                <div>Markdown for docs, dbt concepts, Airbyte basics</div>
-              </div>
-            </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {tools.map((tool, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-4 py-2 rounded-full font-medium border border-purple-200"
+              >
+                {tool}
+              </motion.span>
+            ))}
           </div>
         </motion.div>
       </div>
@@ -605,4 +633,4 @@ const DataAnalyticsSyllabus = () => {
   );
 };
 
-export default DataAnalyticsSyllabus;
+export default DataScienceSyllabus;

@@ -5,7 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ChevronDown } from "lucide-react";
 import FloatingLabelInput from "./FloatingLabelInput";
 import { sendEmail } from "../nodeMailerServer";
+<<<<<<< Updated upstream
 
+=======
+import { toast } from "react-toastify";
+>>>>>>> Stashed changes
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().min(1, "Email is required").email("Invalid email format"),
