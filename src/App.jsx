@@ -22,6 +22,9 @@ import Contact from "./components/Contact";
 // import { sendEmail } from "./nodeMailerServer"; // ⚠️ Don't import server code into React
 
 const MainComponent = () => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Navbar />
