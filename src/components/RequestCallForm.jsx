@@ -110,7 +110,7 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
           phone: data.phone,
           name: data.name,
           email: data.email,
-          program: data.program,
+          course: data.program,
         });
 
         if (result.success) {

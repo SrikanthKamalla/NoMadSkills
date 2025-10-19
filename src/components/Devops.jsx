@@ -58,7 +58,7 @@ const Devops = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen mt-14 bg-gradient-to-br from-blue-50 via-blue-100 to-[#0d77cf]">
+    <div className="min-h-screen mt-6 bg-gradient-to-br from-blue-50 via-blue-100 to-[#0d77cf]">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
@@ -196,7 +196,7 @@ const Devops = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name });
+                    const result = await sendEmail({ phone: number, name: name,course:"Devops" });
                     if (result.success) {
                       toast("Query sent successfully");
                       setNumber("");
@@ -219,7 +219,7 @@ const Devops = () => {
                 By clicking 'Apply Now', you agree to our{" "}
                 <button
                   onClick={() => navigate("/termsandconditions")}
-                  className="text-[#0d77cf] hover:text-blue-700 underline transition-colors"
+                  className="text-[#0d77cf] hover:text-blue-700 underline transition-colors cursor-pointer"
                 >
                   Terms & Conditions
                 </button>

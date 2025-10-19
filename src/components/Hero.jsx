@@ -181,6 +181,9 @@ const Hero = ({ className = "" }) => {
         {/* CTA Button */}
         <motion.button
           variants={itemVariants}
+          onClick={() => {
+            document.getElementById("courses").scrollIntoView({ behavior: "smooth" });
+          }}
           whileHover={{
             scale: 1.05,
             boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)",

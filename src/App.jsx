@@ -14,6 +14,11 @@ import Instructions from "./components/InstitutionsPage";
 import TermsAndConditions from "./components/TermaANdConditions";
 import { ToastContainer } from "react-toastify";
 import DataScience from "./components/DataScience";
+import AboutUs from "./components/About";
+import PrivacyTerms from "./components/PrivacyTerms";
+import Contact from "./components/Contact";
+
+
 // import { sendEmail } from "./nodeMailerServer"; // ⚠️ Don't import server code into React
 
 const MainComponent = () => {
@@ -55,11 +60,14 @@ const App = () => {
           <Route path="datascience" element={<DataScience />} />
           <Route path="institutions" element={<Instructions />} />
           <Route path="termsandconditions" element={<TermsAndConditions />} />
+          <Route path="about" element={<AboutUs />} />
+          <Route path="privacy" element={<PrivacyTerms />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

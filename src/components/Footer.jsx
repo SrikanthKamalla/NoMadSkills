@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
 import { MdLocationPin, MdMail } from "react-icons/md";
@@ -109,20 +109,48 @@ const Footer = () => {
                 variants={containerVariants}
               >
                 <motion.a
-                  href="#"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300"
+                  href="https://www.linkedin.com/company/nomadskills-edutech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
                   variants={socialIconVariants}
+                  whileHover="hover"
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaInstagram className="text-base text-white group-hover:text-[#0d77cf]" />
+                  <FaLinkedinIn className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
                 <motion.a
-                  href="#"
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300"
+                  href="https://www.youtube.com/@NomadSkills-yt/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
                   variants={socialIconVariants}
+                  whileHover="hover"
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaLinkedinIn className="text-base text-white group-hover:text-[#0d77cf]" />
+                  <FaYoutube className="text-base text-white hover:text-[#0d77cf]" />
+                </motion.a>
+                <motion.a
+                  href="https://www.facebook.com/profile.php?id=61559459916434/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
+                  variants={socialIconVariants}
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaFacebookF className="text-base text-white hover:text-[#0d77cf]" />
+                </motion.a>
+                <motion.a
+                  href="https://www.twitter.com/Nomadskills_Edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
+                  variants={socialIconVariants}
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaTwitter className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
               </motion.div>
             </div>
@@ -199,7 +227,14 @@ const Footer = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            © {new Date().getFullYear()} NomadSkills. All rights reserved. | Privacy Policy |
+            © {new Date().getFullYear()} NomadSkills. All rights reserved. |{" "}
+            <Link
+              to="/privacy"
+              className="ml-2 hover:underline transition-colors duration-200"
+            >
+              Privacy Policy
+            </Link>{" "}
+            |
             <Link
               to="/termsandconditions"
               className="ml-2 hover:underline transition-colors duration-200"

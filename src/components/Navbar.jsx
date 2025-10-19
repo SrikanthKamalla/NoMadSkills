@@ -141,7 +141,7 @@ const Navbar = () => {
   };
 
   const handleNavClick = item => {
-    if (item.title === "About" || item.title === "Contact") {
+    if (item.title === "Contactj") {
       if (window.location.pathname === "/") {
         handleScrollToFooter();
       } else {
