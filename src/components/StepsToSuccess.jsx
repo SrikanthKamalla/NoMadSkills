@@ -346,30 +346,6 @@ const StepsToSuccess = () => {
                 </motion.button>
               );
             })}
-
-            {/* Connecting Lines */}
-            <svg className="absolute w-full h-full pointer-events-none">
-              {steps.map((step, index) => {
-                const position = getStepPosition(index, steps.length);
-                const isConnected = step.id <= activeStep;
-
-                return (
-                  <motion.line
-                    key={step.id}
-                    x1="50%"
-                    y1="50%"
-                    x2={`${50 + position.x / 4}%`}
-                    y2={`${50 + position.y / 4}%`}
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    className={`${isConnected ? "text-blue-500" : "text-gray-300"}`}
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: isConnected ? 1 : 0 }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                  />
-                );
-              })}
-            </svg>
           </motion.div>
 
           {/* Content Section */}

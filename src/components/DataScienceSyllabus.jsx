@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronRight,
+  ChevronLeft,
   Code,
   Database,
   Layout,
@@ -269,6 +270,19 @@ const DataScienceSyllabus = () => {
   ];
 
   const activeModuleData = syllabusData.find(module => module.id === activeModule);
+
+  // Navigation functions
+  const nextModule = () => {
+    if (activeModule < syllabusData.length) {
+      setActiveModule(activeModule + 1);
+    }
+  };
+
+  const prevModule = () => {
+    if (activeModule > 1) {
+      setActiveModule(activeModule - 1);
+    }
+  };
 
   // Stats based on PDF data
   const stats = [
@@ -587,16 +601,38 @@ const DataScienceSyllabus = () => {
                   </div>
                 </div>
 
-                {/* Action Button */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full mt-6 lg:mt-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 lg:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-3"
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Start This Module</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-6 lg:mt-8">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={prevModule}
+                    disabled={activeModule === 1}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === 1
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-purple-600 text-white hover:bg-purple-700"
+                    }`}
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                    <span>Previous</span>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={nextModule}
+                    disabled={activeModule === syllabusData.length}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === syllabusData.length
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-pink-600 text-white hover:bg-pink-700"
+                    }`}
+                  >
+                    <span>Next</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>

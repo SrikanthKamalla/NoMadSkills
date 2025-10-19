@@ -21,17 +21,10 @@ const Navbar = () => {
       title: "All Programs",
       dropdown: true,
       types: [
-<<<<<<< Updated upstream
-        { id: 1, course: "Full Stack MERN", path: "/merncourse" },
-        { id: 2, course: "AI & Data Science", path: "/aidatascience" },
-        { id: 3, course: "AWS DevOps ", path: "/awsdevops" },
-        { id: 4, course: "Data Analyst", path: "/dataanalytics" },
-=======
         { id: 1, course: "MERN Stack with AI", path: "/merncourse" },
         { id: 2, course: "DevOps", path: "/devops" },
         { id: 3, course: "Data Analyst", path: "/dataanalytics" },
         { id: 4, course: "Data Science", path: "/datascience" },
->>>>>>> Stashed changes
       ],
     },
     { id: 3, title: "For Instructions", path: "/institutions" },
@@ -121,10 +114,6 @@ const Navbar = () => {
   // Close dropdown when clicking outside, but don't close when clicking a dropdown-course-item
   useEffect(() => {
     const handleClickOutside = event => {
-<<<<<<< Updated upstream
-=======
-      // if click target is inside dropdownRef => ignore
->>>>>>> Stashed changes
       if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
         return;
       }
@@ -152,10 +141,6 @@ const Navbar = () => {
   };
 
   const handleNavClick = item => {
-<<<<<<< Updated upstream
-=======
-    // About and Contact scroll to footer when on home, otherwise navigate to home then scroll
->>>>>>> Stashed changes
     if (item.title === "About" || item.title === "Contact") {
       if (window.location.pathname === "/") {
         handleScrollToFooter();
@@ -170,17 +155,7 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-<<<<<<< Updated upstream
   const handleCourseClick = path => {
-=======
-  // COURSE click handler — robust navigation
-  const handleCourseClick = path => {
-    // Logging helps debug if still failing in some envs
-    // eslint-disable-next-line no-console
-    console.log("🚀 Navigating to:", path);
-
-    // Close dropdowns immediately in state
->>>>>>> Stashed changes
     setShowCourses(false);
     setIsOpen(false);
     setTimeout(() => {
@@ -251,15 +226,9 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Nav - Hidden on mobile */}
-<<<<<<< Updated upstream
           <ul className="hidden lg:flex gap-8 items-center text-sm font-medium">
             {navItems.map((item, index) => (
               <motion.li
-=======
-          <ul className="hidden lg:flex gap-6 items-center text-sm font-semibold">
-            {navItems.map(item => (
-              <li
->>>>>>> Stashed changes
                 key={item.id}
                 className={`relative cursor-pointer ${
                   item.dropdown
@@ -295,7 +264,6 @@ const Navbar = () => {
                     </motion.div>
 
                     {/* Dropdown */}
-<<<<<<< Updated upstream
                     <AnimatePresence>
                       {showCourses && (
                         <motion.div
@@ -332,34 +300,6 @@ const Navbar = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-=======
-                    {showCourses && (
-                      <div
-                        className="absolute top-full left-0 mt-2 bg-gray-800 text-white shadow-xl rounded-lg w-56 overflow-hidden z-50 border border-gray-700"
-                        onMouseLeave={() => {
-                          // optional: auto-close when mouse leaves the area for desktop UX
-                          // setShowCourses(false);
-                        }}
-                      >
-                        <ul>
-                          {item.types.map(type => (
-                            <li
-                              key={type.id}
-                              className="dropdown-course-item px-4 py-3 hover:bg-purple-600 cursor-pointer border-b border-gray-700 last:border-b-0 transition-colors duration-200 font-medium text-sm"
-                              onClick={() => handleCourseClick(type.path)}
-                              role="menuitem"
-                              tabIndex={0}
-                              onKeyDown={e => {
-                                if (e.key === "Enter") handleCourseClick(type.path);
-                              }}
-                            >
-                              {type.course}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
->>>>>>> Stashed changes
                   </>
                 ) : (
                   <motion.div
@@ -386,7 +326,6 @@ const Navbar = () => {
           </ul>
 
           {/* Mobile Navigation - Horizontal layout for tablets and small screens */}
-<<<<<<< Updated upstream
           <ul className="hidden md:flex lg:hidden gap-4 items-center text-xs font-medium">
             {navItems.map(item => (
               <motion.li
@@ -395,14 +334,6 @@ const Navbar = () => {
                 ref={item.dropdown ? dropdownRef : null}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-=======
-          <ul className="hidden md:flex lg:hidden gap-4 items-center text-xs font-semibold">
-            {navItems.map(item => (
-              <li
-                key={item.id}
-                className="relative cursor-pointer"
-                ref={item.dropdown ? dropdownRef : null}
->>>>>>> Stashed changes
               >
                 {item.dropdown ? (
                   <>
@@ -421,7 +352,6 @@ const Navbar = () => {
                     </div>
 
                     {/* Dropdown for tablet */}
-<<<<<<< Updated upstream
                     <AnimatePresence>
                       {showCourses && (
                         <motion.div
@@ -452,25 +382,6 @@ const Navbar = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-=======
-                    {showCourses && (
-                      <div className="absolute top-full left-0 mt-2 bg-gray-800 text-white shadow-xl rounded-lg w-48 overflow-hidden z-50 border border-gray-700">
-                        <ul>
-                          {item.types.map(type => (
-                            <li
-                              key={type.id}
-                              className="dropdown-course-item px-3 py-2 hover:bg-purple-600 cursor-pointer border-b border-gray-700 last:border-b-0 transition-colors duration-200 font-medium text-xs"
-                              onClick={() => handleCourseClick(type.path)}
-                              role="menuitem"
-                              tabIndex={0}
-                            >
-                              {type.course}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
->>>>>>> Stashed changes
                   </>
                 ) : (
                   <div
@@ -490,13 +401,8 @@ const Navbar = () => {
           </ul>
 
           {/* Mobile Menu Button - Only for small screens */}
-<<<<<<< Updated upstream
           <motion.button
             className="md:hidden p-2 hover:bg-[#7ac3ff] rounded-lg transition-colors duration-200"
-=======
-          <button
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
->>>>>>> Stashed changes
             onClick={() => setIsOpen(s => !s)}
             aria-expanded={isOpen}
             aria-label="Toggle menu"
@@ -510,7 +416,6 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu - Only for small screens */}
-<<<<<<< Updated upstream
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -584,17 +489,6 @@ const Navbar = () => {
                       window.scrollTo({ top: 0, behavior: "smooth" });
                       handleNavClick(item);
                     }}
-=======
-      {isOpen && (
-        <div className="md:hidden bg-gradient-to-br from-gray-800 via-purple-900 to-gray-800 px-4 py-4 absolute top-full left-0 right-0 shadow-xl border-t border-gray-700">
-          <ul className="flex flex-col gap-1 text-sm font-medium">
-            {navItems.map(item =>
-              item.dropdown ? (
-                <div key={item.id}>
-                  <li
-                    className="flex items-center justify-between cursor-pointer py-3 px-3 rounded-lg hover:bg-white/10 transition-colors duration-200"
-                    onClick={handleCoursesDropdownToggle}
->>>>>>> Stashed changes
                     role="button"
                     tabIndex={0}
                     initial={{ opacity: 0, x: -20 }}
@@ -606,7 +500,6 @@ const Navbar = () => {
                       transition: { duration: 0.2 },
                     }}
                   >
-<<<<<<< Updated upstream
                     {item.title}
                   </motion.li>
                 )
@@ -615,50 +508,6 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-=======
-                    <span>{item.title}</span>
-                    <ChevronDown
-                      className={`transition-transform duration-300 ${showCourses ? "rotate-180" : ""}`}
-                      size={16}
-                    />
-                  </li>
-                  {showCourses && (
-                    <div className="ml-4 mt-1 bg-white/5 rounded-lg overflow-hidden">
-                      <ul className="py-2">
-                        {item.types?.map(type => (
-                          <li
-                            key={type.id}
-                            className="dropdown-course-item px-4 py-2.5 hover:bg-white/10 cursor-pointer border-b border-white/5 last:border-b-0 transition-colors duration-200 text-sm"
-                            onClick={() => handleCourseClick(type.path)}
-                            role="menuitem"
-                            tabIndex={0}
-                          >
-                            {type.course}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <li
-                  key={item.id}
-                  className="py-3 px-3 cursor-pointer hover:bg-white/10 rounded-lg transition-colors duration-200"
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    handleNavClick(item);
-                  }}
-                  role="button"
-                  tabIndex={0}
-                >
-                  {item.title}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-      )}
->>>>>>> Stashed changes
 
       {/* Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} width="max-w-md">
