@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
+  ChevronLeft,
   Code,
   Database,
   Layout,
@@ -166,6 +167,19 @@ const MernSyllabus = () => {
 
   const activeModuleData = syllabusData.find(module => module.id === activeModule);
 
+  // Navigation functions
+  const nextModule = () => {
+    if (activeModule < syllabusData.length) {
+      setActiveModule(activeModule + 1);
+    }
+  };
+
+  const prevModule = () => {
+    if (activeModule > 1) {
+      setActiveModule(activeModule - 1);
+    }
+  };
+
   const stats = [
     { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "29 Weeks" },
     { icon: <BookOpen className="w-5 h-5" />, label: "Modules", value: "6" },
@@ -227,22 +241,22 @@ const MernSyllabus = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Syllabus Layout with Equal Height */}
-        <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto min-h-[600px]">
-          {/* Module Navigation - Fixed Height */}
+        {/* Enhanced Syllabus Layout */}
+        <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
+          {/* Module Navigation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-4"
           >
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6 h-full flex flex-col">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center space-x-2">
                 <BookOpen className="w-5 h-5 text-blue-600" />
                 <span>Learning Path</span>
               </h3>
 
-              <div className="space-y-3 flex-1 overflow-y-auto">
+              <div className="space-y-3 max-h-[600px] overflow-y-auto">
                 {syllabusData.map((module, index) => (
                   <motion.button
                     key={module.id}
@@ -295,7 +309,7 @@ const MernSyllabus = () => {
             </div>
           </motion.div>
 
-          {/* Module Details - Matching Height */}
+          {/* Module Details */}
           <motion.div
             key={activeModule}
             initial={{ opacity: 0, x: 20 }}
@@ -304,10 +318,10 @@ const MernSyllabus = () => {
             className="lg:col-span-8"
           >
             <div
-              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden h-full flex flex-col`}
+              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden`}
             >
               {/* Module Header */}
-              <div className={`bg-gradient-to-r ${activeModuleData.color} p-8 text-white`}>
+              <div className={`bg-gradient-to-r ${activeModuleData.color} p-6 lg:p-8 text-white`}>
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-4">
@@ -341,16 +355,16 @@ const MernSyllabus = () => {
                 </div>
               </div>
 
-              {/* Module Content - Flexible Height */}
-              <div className="p-6 lg:p-8 flex-1">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 h-full">
-                  {/* Topics - Takes more space */}
+              {/* Module Content */}
+              <div className="p-6 lg:p-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {/* Topics Section */}
                   <div className="lg:col-span-2">
                     <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
                       <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                       <span>What You'll Learn</span>
                     </h3>
-                    <div className="grid sm:grid-cols-2 gap-3 lg:gap-4 max-h-96 overflow-y-auto pr-2">
+                    <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
                       {activeModuleData.topics.map((topic, index) => (
                         <motion.div
                           key={index}
@@ -369,7 +383,7 @@ const MernSyllabus = () => {
                     </div>
                   </div>
 
-                  {/* Projects & Skills - Sidebar */}
+                  {/* Projects & Skills Sidebar */}
                   <div className="space-y-6 lg:space-y-8">
                     {/* Projects */}
                     <div>
@@ -420,16 +434,38 @@ const MernSyllabus = () => {
                   </div>
                 </div>
 
-                {/* Action Button */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full mt-6 lg:mt-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 lg:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-3"
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Start This Module</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-6 lg:mt-8">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={prevModule}
+                    disabled={activeModule === 1}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === 1
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                    <span>Previous</span>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={nextModule}
+                    disabled={activeModule === syllabusData.length}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === syllabusData.length
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-purple-600 text-white hover:bg-purple-700"
+                    }`}
+                  >
+                    <span>Next</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>

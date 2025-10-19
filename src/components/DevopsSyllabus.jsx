@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
+  ChevronLeft,
   Code,
   Database,
   Layout,
@@ -25,15 +26,48 @@ import {
   Settings,
   GitMerge,
   Globe,
+  Shield,
+  GitBranch,
+  Container,
+  Wrench,
+  Monitor,
+  Bug,
+  Award,
 } from "lucide-react";
 
 const DevopsSyllabus = () => {
   const [activeModule, setActiveModule] = useState(1);
 
+  // Data structured from the PDF content
   const syllabusData = [
     {
       id: 1,
-      title: "Linux & Scripting Fundamentals",
+      title: "Cloud Computing & AWS Fundamentals",
+      icon: <Cloud className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Beginner",
+      color: "from-orange-500 to-yellow-500",
+      bgColor: "bg-gradient-to-br from-orange-50 to-yellow-50",
+      borderColor: "border-orange-200",
+      topics: [
+        "Cloud Computing Concepts & Models",
+        "AWS Global Infrastructure",
+        "EC2 Instances & Configurations",
+        "Elastic Load Balancing (ELB)",
+        "Auto Scaling Groups",
+        "AWS Lambda Functions",
+        "S3 & Storage Classes",
+        "EBS, Glacier & Storage Gateway",
+        "AWS Management Console, CLI, SDKs",
+        "Pricing Models & Free Tier",
+      ],
+      projects: ["Multi-tier AWS Architecture", "Auto Scaling Setup", "Storage Solution Design"],
+      skills: ["AWS", "EC2", "S3", "Cloud Computing", "Infrastructure"],
+      outcome: "Master AWS core services and deploy scalable cloud infrastructure",
+    },
+    {
+      id: 2,
+      title: "Linux & Python Fundamentals",
       icon: <Terminal className="w-6 h-6" />,
       duration: "4 Weeks",
       level: "Beginner",
@@ -41,197 +75,366 @@ const DevopsSyllabus = () => {
       bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
       borderColor: "border-green-200",
       topics: [
-        "Linux Operating System Fundamentals",
-        "Command Line Mastery",
-        "File System & Permissions",
-        "Process Management",
-        "Bash Scripting & Automation",
-        "Text Processing (grep, sed, awk)",
-        "Package Management",
-        "System Monitoring & Logs",
+        "Linux Distributions & Basics",
+        "File System Navigation & Permissions",
+        "User Management & Security",
+        "Shell Scripting Fundamentals",
+        "Package Management (apt, yum)",
+        "System Monitoring & Performance",
+        "Python Syntax & Data Types",
+        "Control Flow Statements",
+        "Functions & Modules",
+        "File Handling & Exception Handling",
       ],
-      projects: ["Automated System Scripts", "Log Analysis Tool", "Server Monitoring Script"],
-      skills: ["Linux", "Bash Scripting", "CLI", "System Administration"],
-      outcome: "Master Linux systems and automate tasks using shell scripting",
-    },
-    {
-      id: 2,
-      title: "Networking & Security",
-      icon: <Globe className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Beginner",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
-      borderColor: "border-blue-200",
-      topics: [
-        "TCP/IP & Network Protocols",
-        "DNS & Load Balancing",
-        "Firewalls & Security Groups",
-        "SSL/TLS & Certificate Management",
-        "VPN & Network Security",
-        "HTTP/HTTPS & Web Servers",
-        "Network Troubleshooting",
-        "Security Best Practices",
-      ],
-      projects: [
-        "Network Configuration",
-        "SSL Certificate Setup",
-        "Security Hardening",
-        "Load Balancer Config",
-      ],
-      skills: ["Networking", "Security", "DNS", "Load Balancing"],
-      outcome: "Design secure network architectures and implement security measures",
+      projects: ["Automation Scripts", "System Monitoring Tool", "Python Utilities"],
+      skills: ["Linux", "Python", "Bash Scripting", "System Administration"],
+      outcome: "Automate tasks and manage systems using Linux and Python",
     },
     {
       id: 3,
-      title: "Cloud Computing & AWS",
-      icon: <Cloud className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Intermediate",
-      color: "from-orange-500 to-yellow-500",
-      bgColor: "bg-gradient-to-br from-orange-50 to-yellow-50",
-      borderColor: "border-orange-200",
-      topics: [
-        "Cloud Computing Concepts",
-        "AWS Core Services (EC2, S3, VPC)",
-        "IAM & Security Management",
-        "Auto Scaling & Load Balancing",
-        "Storage Solutions (EBS, EFS)",
-        "Database Services (RDS, DynamoDB)",
-        "Monitoring with CloudWatch",
-        "Cost Optimization & Billing",
-      ],
-      projects: [
-        "Multi-tier AWS Architecture",
-        "Auto Scaling Setup",
-        "Disaster Recovery Plan",
-        "Cost Optimization",
-      ],
-      skills: ["AWS", "Cloud Computing", "EC2", "S3", "IAM"],
-      outcome: "Deploy and manage applications on AWS cloud infrastructure",
-    },
-    {
-      id: 4,
-      title: "Containerization with Docker",
-      icon: <Box className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Intermediate",
-      color: "from-blue-500 to-indigo-500",
-      bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
-      borderColor: "border-blue-200",
-      topics: [
-        "Containerization Concepts",
-        "Docker Architecture & Components",
-        "Dockerfile Best Practices",
-        "Image Management & Registry",
-        "Container Networking",
-        "Docker Compose & Multi-container Apps",
-        "Volume Management",
-        "Container Security",
-      ],
-      projects: [
-        "Dockerized Application",
-        "Multi-service Setup",
-        "Custom Docker Images",
-        "Container Registry",
-      ],
-      skills: ["Docker", "Containerization", "Docker Compose", "Container Security"],
-      outcome: "Containerize applications and manage multi-container environments",
-    },
-    {
-      id: 5,
-      title: "Orchestration with Kubernetes",
-      icon: <Settings className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Advanced",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
-      borderColor: "border-purple-200",
-      topics: [
-        "Kubernetes Architecture",
-        "Pods, Deployments & Services",
-        "ConfigMaps & Secrets",
-        "Storage in Kubernetes",
-        "Networking & Ingress",
-        "Helm Charts & Package Management",
-        "Monitoring & Logging",
-        "Cluster Administration & Security",
-      ],
-      projects: [
-        "Kubernetes Cluster Setup",
-        "Application Deployment",
-        "Helm Chart Creation",
-        "Monitoring Stack",
-      ],
-      skills: ["Kubernetes", "Helm", "Cluster Management", "K8s Security"],
-      outcome: "Deploy and manage containerized applications at scale using Kubernetes",
-    },
-    {
-      id: 6,
-      title: "CI/CD & Infrastructure as Code",
+      title: "DevOps & CI/CD with Jenkins",
       icon: <GitMerge className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Advanced",
+      duration: "3 Weeks",
+      level: "Intermediate",
       color: "from-red-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-red-50 to-pink-50",
       borderColor: "border-red-200",
       topics: [
-        "CI/CD Pipeline Concepts",
-        "Jenkins Pipeline as Code",
-        "GitHub Actions & GitLab CI",
-        "Infrastructure as Code (Terraform)",
-        "Configuration Management (Ansible)",
-        "Automated Testing in CI/CD",
-        "Blue-Green Deployments",
-        "Pipeline Security & Best Practices",
+        "DevOps Principles & Practices",
+        "CI/CD Concepts & Benefits",
+        "Jenkins Architecture & Setup",
+        "Jenkins Jobs & Pipelines",
+        "Version Control Integration",
+        "Jenkins Plugins & Ecosystem",
+        "Pipeline as Code (Jenkinsfile)",
+        "Automated Testing Integration",
+        "GitLab CI & CircleCI Overview",
+        "CI/CD Best Practices",
+      ],
+      projects: ["End-to-End CI/CD Pipeline", "Automated Testing Setup", "Multi-stage Deployment"],
+      skills: ["Jenkins", "CI/CD", "Git", "Automation", "Pipeline Design"],
+      outcome: "Build automated CI/CD pipelines using Jenkins and related tools",
+    },
+    {
+      id: 4,
+      title: "Infrastructure as Code with Terraform",
+      icon: <Settings className="w-6 h-6" />,
+      duration: "3 Weeks",
+      level: "Intermediate",
+      color: "from-purple-500 to-indigo-500",
+      bgColor: "bg-gradient-to-br from-purple-50 to-indigo-50",
+      borderColor: "border-purple-200",
+      topics: [
+        "Infrastructure as Code Concepts",
+        "Terraform Installation & Setup",
+        "Terraform Configuration Files",
+        "CLI Commands (init, plan, apply)",
+        "Terraform Modules & Reusability",
+        "State Management Strategies",
+        "Provisioners & Providers",
+        "CI/CD Pipeline Integration",
+        "Version Control Best Practices",
+        "Collaborative Workflows",
+      ],
+      projects: ["Infrastructure Automation", "Multi-environment Setup", "Module Development"],
+      skills: ["Terraform", "IaC", "Infrastructure Automation", "Cloud Provisioning"],
+      outcome: "Manage cloud infrastructure as code using Terraform",
+    },
+    {
+      id: 5,
+      title: "Containerization with Docker & Kubernetes",
+      icon: <Container className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Intermediate",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
+      borderColor: "border-blue-200",
+      topics: [
+        "Docker Architecture & Benefits",
+        "Images & Container Management",
+        "Dockerfile Best Practices",
+        "Docker Compose & Multi-container",
+        "Kubernetes Architecture & Components",
+        "Pods, Services & Deployments",
+        "Kubernetes Networking & Storage",
+        "Helm Charts & Package Management",
+        "Local Development (MiniKube, Kind)",
+        "Production Kubernetes Setup",
       ],
       projects: [
-        "End-to-End CI/CD Pipeline",
-        "Terraform Infrastructure",
-        "Ansible Playbooks",
-        "Multi-environment Deployment",
+        "Dockerized Application",
+        "Kubernetes Cluster Deployment",
+        "Helm Chart Creation",
+        "Multi-service Architecture",
       ],
-      skills: ["CI/CD", "Terraform", "Ansible", "Jenkins", "GitHub Actions"],
-      outcome: "Build automated deployment pipelines and manage infrastructure as code",
+      skills: ["Docker", "Kubernetes", "Containerization", "Helm", "Orchestration"],
+      outcome: "Containerize applications and manage them using Kubernetes",
+    },
+    {
+      id: 6,
+      title: "Configuration Management with Ansible",
+      icon: <Wrench className="w-6 h-6" />,
+      duration: "3 Weeks",
+      level: "Intermediate",
+      color: "from-gray-500 to-blue-500",
+      bgColor: "bg-gradient-to-br from-gray-50 to-blue-50",
+      borderColor: "border-gray-200",
+      topics: [
+        "Configuration Management Concepts",
+        "Ansible Architecture & Setup",
+        "Playbooks & YAML Syntax",
+        "Modules & Ad-hoc Commands",
+        "Inventory Management",
+        "Roles & Playbook Organization",
+        "Ansible Vault for Secrets",
+        "Ansible Galaxy & Custom Modules",
+        "CI/CD Pipeline Integration",
+        "Ansible Tower/AWX Overview",
+      ],
+      projects: ["Infrastructure Configuration", "Automated Deployment", "Role Development"],
+      skills: ["Ansible", "Configuration Management", "Automation", "YAML"],
+      outcome: "Automate configuration management and application deployment",
     },
     {
       id: 7,
-      title: "Monitoring & DevOps Tools",
-      icon: <BarChart3 className="w-6 h-6" />,
-      duration: "4 Weeks",
+      title: "Advanced AWS Services",
+      icon: <Database className="w-6 h-6" />,
+      duration: "3 Weeks",
+      level: "Advanced",
+      color: "from-yellow-500 to-orange-500",
+      bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
+      borderColor: "border-yellow-200",
+      topics: [
+        "AWS Networking (VPC, Subnets)",
+        "Security Groups & NACLs",
+        "Direct Connect & VPN",
+        "RDS, DynamoDB & Aurora",
+        "Database Migration Service",
+        "IAM Advanced Features",
+        "KMS & Encryption Services",
+        "Security Hub & GuardDuty",
+        "Lambda & Serverless Architecture",
+        "API Gateway & Step Functions",
+      ],
+      projects: [
+        "Secure VPC Architecture",
+        "Database Migration Plan",
+        "Serverless Application",
+        "Security Implementation",
+      ],
+      skills: ["AWS Advanced", "Networking", "Security", "Serverless", "Databases"],
+      outcome: "Design and implement advanced AWS solutions for enterprise applications",
+    },
+    {
+      id: 8,
+      title: "DevSecOps & Security Best Practices",
+      icon: <Shield className="w-6 h-6" />,
+      duration: "3 Weeks",
+      level: "Advanced",
+      color: "from-red-500 to-purple-500",
+      bgColor: "bg-gradient-to-br from-red-50 to-purple-50",
+      borderColor: "border-red-200",
+      topics: [
+        "DevSecOps Principles & Practices",
+        "Shift Left Security Approach",
+        "Secure Coding Practices",
+        "SAST/DAST Implementation",
+        "Vulnerability Scanning",
+        "Infrastructure Security",
+        "Network Security & Segmentation",
+        "Compliance Frameworks (GDPR, HIPAA)",
+        "Continuous Compliance",
+        "Auditing & Monitoring",
+      ],
+      projects: [
+        "Security Pipeline Integration",
+        "Compliance Implementation",
+        "Security Assessment",
+        "Incident Response Plan",
+      ],
+      skills: ["DevSecOps", "Security", "Compliance", "SAST/DAST", "Risk Management"],
+      outcome: "Integrate security throughout the DevOps lifecycle",
+    },
+    {
+      id: 9,
+      title: "Monitoring & Logging Solutions",
+      icon: <Monitor className="w-6 h-6" />,
+      duration: "3 Weeks",
       level: "Advanced",
       color: "from-indigo-500 to-purple-500",
       bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50",
       borderColor: "border-indigo-200",
       topics: [
-        "Monitoring & Observability",
+        "Monitoring Concepts & Metrics",
         "Prometheus & Grafana Setup",
-        "Log Management with ELK Stack",
+        "ELK Stack for Log Management",
+        "Centralized Logging with Splunk",
+        "Alerting & Notification Systems",
+        "Incident Management (PagerDuty)",
         "Application Performance Monitoring",
-        "Alerting & Incident Management",
-        "Infrastructure Monitoring",
         "Distributed Tracing",
+        "Microservices Monitoring",
         "SRE Principles & Practices",
       ],
       projects: [
-        "Monitoring Stack Setup",
+        "Monitoring Stack Deployment",
         "Dashboard Creation",
-        "Alert System",
-        "Performance Optimization",
+        "Alert System Setup",
+        "Log Analysis Solution",
       ],
-      skills: ["Prometheus", "Grafana", "ELK Stack", "Monitoring", "SRE"],
-      outcome: "Implement comprehensive monitoring and observability for production systems",
+      skills: ["Prometheus", "Grafana", "ELK Stack", "Monitoring", "Observability"],
+      outcome: "Implement comprehensive monitoring and observability solutions",
+    },
+    {
+      id: 10,
+      title: "Serverless Development with AWS Lambda",
+      icon: <Zap className="w-6 h-6" />,
+      duration: "2 Weeks",
+      level: "Advanced",
+      color: "from-blue-500 to-green-500",
+      bgColor: "bg-gradient-to-br from-blue-50 to-green-50",
+      borderColor: "border-blue-200",
+      topics: [
+        "Serverless Architecture Concepts",
+        "AWS Lambda Setup & Configuration",
+        "Triggers & Event Sources",
+        "Error Handling & Retries",
+        "Lambda Integration Patterns",
+        "Security Best Practices",
+        "Monitoring & Logging",
+        "CI/CD for Serverless",
+        "Cost Optimization",
+        "Real-world Use Cases",
+      ],
+      projects: ["Serverless Application", "Event-driven Architecture", "Lambda Optimization"],
+      skills: ["AWS Lambda", "Serverless", "Event-driven Architecture", "Microservices"],
+      outcome: "Build and deploy serverless applications using AWS Lambda",
+    },
+    {
+      id: 11,
+      title: "Troubleshooting & Incident Response",
+      icon: <Bug className="w-6 h-6" />,
+      duration: "2 Weeks",
+      level: "Advanced",
+      color: "from-orange-500 to-red-500",
+      bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
+      borderColor: "border-orange-200",
+      topics: [
+        "Systematic Troubleshooting",
+        "Application Debugging Techniques",
+        "Infrastructure Problem Resolution",
+        "Log Analysis & Diagnostics",
+        "Incident Response Frameworks",
+        "Communication & Coordination",
+        "Post-incident Reviews",
+        "Root Cause Analysis",
+        "Automated Incident Response",
+        "Continuous Improvement",
+      ],
+      projects: ["Troubleshooting Scenarios", "Incident Response Plan", "RCA Documentation"],
+      skills: ["Troubleshooting", "Incident Response", "Debugging", "RCA"],
+      outcome: "Effectively troubleshoot issues and manage incident response",
+    },
+    {
+      id: 12,
+      title: "Project-Based Learning & Mentorship",
+      icon: <Users className="w-6 h-6" />,
+      duration: "4 Weeks",
+      level: "Advanced",
+      color: "from-teal-500 to-blue-500",
+      bgColor: "bg-gradient-to-br from-teal-50 to-blue-50",
+      borderColor: "border-teal-200",
+      topics: [
+        "Real-world Project Development",
+        "Industry Scenario Implementation",
+        "CI/CD Pipeline Construction",
+        "Serverless Function Deployment",
+        "Weekly Mentorship Meetings",
+        "Technical Guidance & Code Reviews",
+        "Portfolio Development",
+        "Problem-solving Skills",
+        "Best Practices Implementation",
+        "Quality Assurance",
+      ],
+      projects: [
+        "End-to-End DevOps Pipeline",
+        "Cloud Infrastructure Project",
+        "Portfolio Development",
+        "Capstone Project",
+      ],
+      skills: ["Project Management", "Solution Design", "Portfolio Development", "Mentorship"],
+      outcome: "Apply all learned skills to real-world projects under expert guidance",
+    },
+    {
+      id: 13,
+      title: "AWS DevOps Certification Prep",
+      icon: <Award className="w-6 h-6" />,
+      duration: "2 Weeks",
+      level: "Advanced",
+      color: "from-purple-500 to-pink-500",
+      bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
+      borderColor: "border-purple-200",
+      topics: [
+        "AWS Certified DevOps Engineer Exam Format",
+        "Key Concepts & Domains Review",
+        "Practice Exam Questions",
+        "Exam Objectives Deep Dive",
+        "Personalized Study Plan",
+        "Time Management Strategies",
+        "Troubleshooting Scenarios",
+        "Best Practices Review",
+        "Hands-on Lab Exercises",
+        "Exam Readiness Assessment",
+      ],
+      projects: ["Practice Exams", "Study Plan Creation", "Concept Reinforcement"],
+      skills: ["AWS Certification", "Exam Preparation", "Concept Mastery", "Test Strategies"],
+      outcome: "Prepare for and pass the AWS Certified DevOps Engineer Professional exam",
     },
   ];
 
   const activeModuleData = syllabusData.find(module => module.id === activeModule);
 
+  // Navigation functions
+  const nextModule = () => {
+    if (activeModule < syllabusData.length) {
+      setActiveModule(activeModule + 1);
+    }
+  };
+
+  const prevModule = () => {
+    if (activeModule > 1) {
+      setActiveModule(activeModule - 1);
+    }
+  };
+
+  // Updated stats based on PDF data
   const stats = [
-    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "29 Weeks" },
-    { icon: <BookOpen className="w-5 h-5" />, label: "Modules", value: "6" },
-    { icon: <Target className="w-5 h-5" />, label: "Projects", value: "15+" },
-    { icon: <CheckCircle className="w-5 h-5" />, label: "Skills", value: "40+" },
-    { icon: <Star className="w-5 h-5" />, label: "Rating", value: "4.9/5" },
+    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "6 Months" },
+    { icon: <BookOpen className="w-5 h-5" />, label: "Modules", value: "13" },
+    { icon: <Target className="w-5 h-5" />, label: "Projects", value: "5 Capstone" },
+    { icon: <CheckCircle className="w-5 h-5" />, label: "Skills", value: "18+" },
+    { icon: <Star className="w-5 h-5" />, label: "Live Sessions", value: "160+ Hrs" },
+  ];
+
+  // Tools covered from PDF
+  const tools = [
+    "AWS",
+    "Linux",
+    "Python",
+    "Jenkins",
+    "Git",
+    "GitLab CI",
+    "CircleCI",
+    "Terraform",
+    "Docker",
+    "Kubernetes",
+    "Ansible",
+    "Prometheus",
+    "Grafana",
+    "ELK Stack",
+    "Splunk",
+    "PagerDuty",
+    "Opsgenie",
   ];
 
   return (
@@ -251,23 +454,64 @@ const DevopsSyllabus = () => {
             className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6"
           >
             <Sparkles className="w-4 h-4" />
-            <span className="font-semibold text-sm uppercase tracking-wide">CURRICULAM</span>
+            <span className="font-semibold text-sm uppercase tracking-wide">
+              AWS DEVOPS ENGINEER PROGRAM
+            </span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Master The Complete{" "}
+            Master{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              MERN Stack Journey
+              AWS DevOps Engineering
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Follow our structured learning path with hands-on projects, real-world applications, and
-            industry-best practices to become job-ready.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+            Become an in-demand DevOps Engineer with comprehensive AWS cloud skills, CI/CD
+            expertise, and hands-on experience with industry-standard tools and practices.
           </p>
 
+          {/* Program Highlights */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">What You'll Achieve:</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-left">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200"
+              >
+                <Award className="w-5 h-5 text-green-600" />
+                <span>AWS Certified DevOps Engineer - Professional Ready</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200"
+              >
+                <Cloud className="w-5 h-5 text-blue-600" />
+                <span>Master AWS Cloud & DevOps Tools</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200"
+              >
+                <GitMerge className="w-5 h-5 text-purple-600" />
+                <span>Build CI/CD, Containers & IaC Expertise</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200"
+              >
+                <Shield className="w-5 h-5 text-red-600" />
+                <span>Automate with Ansible & DevSecOps</span>
+              </motion.div>
+            </div>
+          </div>
+
           {/* Enhanced Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -287,22 +531,22 @@ const DevopsSyllabus = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Syllabus Layout with Equal Height */}
-        <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto min-h-[600px]">
-          {/* Module Navigation - Fixed Height */}
+        {/* Enhanced Syllabus Layout - Fixed Height Issue */}
+        <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
+          {/* Module Navigation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-4"
           >
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6 h-full flex flex-col">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center space-x-2">
                 <BookOpen className="w-5 h-5 text-blue-600" />
-                <span>Learning Path</span>
+                <span>6-Month Learning Path</span>
               </h3>
 
-              <div className="space-y-3 flex-1 overflow-y-auto">
+              <div className="space-y-3 max-h-[600px] overflow-y-auto">
                 {syllabusData.map((module, index) => (
                   <motion.button
                     key={module.id}
@@ -355,7 +599,7 @@ const DevopsSyllabus = () => {
             </div>
           </motion.div>
 
-          {/* Module Details - Matching Height */}
+          {/* Module Details - Fixed Height Issue */}
           <motion.div
             key={activeModule}
             initial={{ opacity: 0, x: 20 }}
@@ -364,10 +608,10 @@ const DevopsSyllabus = () => {
             className="lg:col-span-8"
           >
             <div
-              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden h-full flex flex-col`}
+              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden`}
             >
               {/* Module Header */}
-              <div className={`bg-gradient-to-r ${activeModuleData.color} p-8 text-white`}>
+              <div className={`bg-gradient-to-r ${activeModuleData.color} p-6 lg:p-8 text-white`}>
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-4">
@@ -401,16 +645,16 @@ const DevopsSyllabus = () => {
                 </div>
               </div>
 
-              {/* Module Content - Flexible Height */}
-              <div className="p-6 lg:p-8 flex-1">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 h-full">
-                  {/* Topics - Takes more space */}
+              {/* Module Content - Fixed Layout */}
+              <div className="p-6 lg:p-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {/* Topics Section */}
                   <div className="lg:col-span-2">
                     <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
                       <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                       <span>What You'll Learn</span>
                     </h3>
-                    <div className="grid sm:grid-cols-2 gap-3 lg:gap-4 max-h-96 overflow-y-auto pr-2">
+                    <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
                       {activeModuleData.topics.map((topic, index) => (
                         <motion.div
                           key={index}
@@ -429,7 +673,7 @@ const DevopsSyllabus = () => {
                     </div>
                   </div>
 
-                  {/* Projects & Skills - Sidebar */}
+                  {/* Projects & Skills Sidebar */}
                   <div className="space-y-6 lg:space-y-8">
                     {/* Projects */}
                     <div>
@@ -480,20 +724,69 @@ const DevopsSyllabus = () => {
                   </div>
                 </div>
 
-                {/* Action Button */}
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full mt-6 lg:mt-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 lg:py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-3"
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Start This Module</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-6 lg:mt-8">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={prevModule}
+                    disabled={activeModule === 1}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === 1
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                    <span>Previous</span>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={nextModule}
+                    disabled={activeModule === syllabusData.length}
+                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                      activeModule === syllabusData.length
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-purple-600 text-white hover:bg-purple-700"
+                    }`}
+                  >
+                    <span>Next</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Tools Covered Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 bg-white rounded-2xl shadow-lg border border-gray-100 p-8"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Tools & Technologies Covered
+          </h3>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {tools.map((tool, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full font-medium border border-blue-200"
+              >
+                {tool}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

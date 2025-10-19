@@ -14,11 +14,11 @@ import {
 import MernSyllabus from "./MernSyllabus";
 import StepsToSuccess from "./StepsToSuccess";
 import FAQ from "./FAQ";
-import DataAnalyticsSyllabus from "./DataAnalyticsSyllabus";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
-const DataAnalytics = () => {
+import DataScienceSyllabus from "./DataScienceSyllabus";
+const DataScience = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
 
@@ -79,6 +79,7 @@ const DataAnalytics = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
               <Rocket className="w-8 h-8 text-[#0d77cf]" />
+              <span className="text-xl font-bold text-gray-800">NomadSkills</span>
             </motion.div>
             <motion.button
               onClick={async () => {
@@ -110,9 +111,9 @@ const DataAnalytics = () => {
                 <span className="bg-gradient-to-r from-[#0d77cf] to-blue-600 bg-clip-text text-transparent">
                   Data
                 </span>{" "}
-                Analytics &{" "}
+                Science &{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-[#0d77cf] bg-clip-text text-transparent">
-                  Data Structures
+                  AI
                 </span>
               </motion.h1>
 
@@ -195,7 +196,7 @@ const DataAnalytics = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name,course:"Data Analytics" });
+                    const result = await sendEmail({ phone: number, name: name,course:"Data Science" });
                     if (result.success) {
                       toast("Query sent successfully");
                       setNumber("");
@@ -257,11 +258,11 @@ const DataAnalytics = () => {
           />
         </motion.div>
       </div>
-      <DataAnalyticsSyllabus />
+      <DataScienceSyllabus />
       <StepsToSuccess />
       <FAQ />
     </div>
   );
 };
 
-export default DataAnalytics;
+export default DataScience;
