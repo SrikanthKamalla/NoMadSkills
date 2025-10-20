@@ -196,9 +196,8 @@ const Devops = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name,course:"Devops" });
+                    const result = await sendEmail({ phone: number, name: name, course: "Devops" });
                     if (result.success) {
-                      toast("Query sent successfully");
                       setNumber("");
                       setName("");
                     } else {
