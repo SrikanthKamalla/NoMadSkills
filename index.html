@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/logo.webp" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.webp" />
 
     <!-- Essential SEO Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,7 +61,7 @@
     <link rel="canonical" href="https://nomadskills.in/" />
 
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/src/main.jsx" as="script" />
+    <link rel="preload" href="/assets/index.js" as="script" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -183,9 +183,52 @@
         ]
       }
     </script>
+
+    <!-- Style for noscript fallback -->
+    <style>
+      .no-js-message { 
+        display: none; 
+        padding: 20px; 
+        text-align: center; 
+        background: #f5f5f5; 
+        margin: 20px; 
+        border-radius: 8px;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Noscript content moved to body -->
+    <noscript>
+      <div class="no-js-message" style="display: block;">
+        <h1>NomadSkills - Tech Courses with Job Assistance</h1>
+        <p>Welcome to NomadSkills! We offer industry-led MERN Stack, Data Analytics, and DevOps courses with dedicated job assistance.</p>
+        <p>Please enable JavaScript to experience our full website, or contact us at <a href="mailto:contact@nomadskills.in">contact@nomadskills.in</a></p>
+      </div>
+    </noscript>
+
+    <!-- Load React App -->
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Performance & SEO Enhancement -->
+    <script>
+      // Handle potential routing issues with SPA and direct links
+      if (window.location.hash && window.location.hash === '#_=_') {
+        window.location.hash = '';
+      }
+      
+      // Performance monitoring
+      window.addEventListener('load', function() {
+        // Send performance metrics if supported
+        if ('performance' in window) {
+          const perfData = window.performance.timing;
+          const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+          
+          // You can send this to analytics
+          console.log('Page load time:', loadTime, 'ms');
+        }
+      });
+    </script>
   </body>
 </html>

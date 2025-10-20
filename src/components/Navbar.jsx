@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import Modal from "./Modal";
 import RequestCallForm from "./RequestCallForm";
 import logo from "../assets/logo.webp";
+import nslogo from "../assets/nslogo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -194,20 +195,18 @@ const Navbar = () => {
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         >
-          <motion.img
+          {/* <motion.img
             src={logo}
             alt="NomadSkills Logo"
-            className="h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-md p-1"
+            className="hidden sm:block h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-md p-1"
             whileHover={{ rotate: 5 }}
             transition={{ duration: 0.2 }}
+          /> */}
+          <motion.img
+            src={nslogo}
+            alt="NomadSkills"
+            className="navbar-logo w-48 sm:w-40 object-cover bg-white rounded-lg  shadow-md"
           />
-          <motion.h1
-            className="text-xl sm:text-2xl font-bold tracking-tight whitespace-nowrap text-white"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            NomadSkills
-          </motion.h1>
         </motion.div>
 
         <div className="flex items-center gap-2 sm:gap-4">

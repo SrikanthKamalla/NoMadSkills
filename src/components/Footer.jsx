@@ -5,6 +5,7 @@ import { MdLocationPin, MdMail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import nslogo from "../assets/nslogo.png";
 
 const Footer = () => {
   const [ref, inView] = useInView({
@@ -80,24 +81,24 @@ const Footer = () => {
           <motion.div className="text-center lg:text-left w-full lg:w-auto" variants={itemVariants}>
             <div className="flex flex-col items-center lg:items-start space-y-4 mb-6">
               <motion.div
+              role="button"
+              onClick={()=>window.scrollTo(0,0)}
                 className="flex items-center space-x-3"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <motion.div
+                {/* <motion.div
                   className="w-12 h-12 rounded-lg flex items-center justify-center"
                   whileHover={{ rotate: 5, scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
                   <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
-                </motion.div>
-                <motion.h2
-                  className="text-4xl font-bold text-white"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  NomadSkills
-                </motion.h2>
+                </motion.div> */}
+                <motion.img
+                  src={nslogo}
+                  alt="NomadSkills"
+                  className="navbar-logo w-48 sm:w-40 object-cover bg-white rounded-lg  shadow-md"
+                />
               </motion.div>
 
               <motion.p className="text-white text-lg mt-2" variants={itemVariants}>
@@ -228,10 +229,7 @@ const Footer = () => {
             transition={{ duration: 0.2 }}
           >
             © {new Date().getFullYear()} NomadSkills. All rights reserved. |{" "}
-            <Link
-              to="/privacy"
-              className="ml-2 hover:underline transition-colors duration-200"
-            >
+            <Link to="/privacy" className="ml-2 hover:underline transition-colors duration-200">
               Privacy Policy
             </Link>{" "}
             |
