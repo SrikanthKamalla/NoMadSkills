@@ -1,4 +1,13 @@
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaYoutube,
+  FaInstagram,
+  FaMap,
+  FaMapMarked,
+  FaMapSigns,
+} from "react-icons/fa";
 import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
 import { MdLocationPin, MdMail } from "react-icons/md";
@@ -81,8 +90,8 @@ const Footer = () => {
           <motion.div className="text-center lg:text-left w-full lg:w-auto" variants={itemVariants}>
             <div className="flex flex-col items-center lg:items-start space-y-4 mb-6">
               <motion.div
-              role="button"
-              onClick={()=>window.scrollTo(0,0)}
+                role="button"
+                onClick={() => window.scrollTo(0, 0)}
                 className="flex items-center space-x-3"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
@@ -132,7 +141,7 @@ const Footer = () => {
                   <FaYoutube className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
                 <motion.a
-                  href="https://www.facebook.com/profile.php?id=61559459916434/"
+                  href="https://www.instagram.com/nomadskills_edtech/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
@@ -140,10 +149,10 @@ const Footer = () => {
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaFacebookF className="text-base text-white hover:text-[#0d77cf]" />
+                  <FaInstagram className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
                 <motion.a
-                  href="https://www.twitter.com/Nomadskills_Edu"
+                  href="https://www.google.com/maps/dir//Pillar+No.830,+Sree+Rama+Towers,+Towards,+Y+Junction,+opp.+New+Govt+Jr+College,+Sangeet+Nagar,+Kukatpally,+Hyderabad,+Telangana+500072/@17.4815634,78.3342631,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3bcb91f38c578bd1:0x73216ee01d57e613!2m2!1d78.4166649!2d17.4815804?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
@@ -151,7 +160,7 @@ const Footer = () => {
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaTwitter className="text-base text-white hover:text-[#0d77cf]" />
+                  <FaMap className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
               </motion.div>
             </div>
@@ -180,7 +189,15 @@ const Footer = () => {
                   <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
                     <MdMail className="text-white text-lg" />
                   </motion.span>
-                  <span>contact@nomadskills.in</span>
+                  <motion.a
+                    target="_blank"
+                    href="mailto:contact@nomadskills.in"
+                    className="text-base"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    contact@nomadskills.in
+                  </motion.a>
                 </span>
               </motion.p>
               <motion.p
@@ -192,7 +209,15 @@ const Footer = () => {
                 <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
                   <IoCall className="text-white text-lg" />
                 </motion.span>
-                <span className="text-base">+91 98765 43210</span>
+                <motion.a
+                  target="_blank"
+                  href="tel:+919876543210"
+                  className="text-base"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  +91 98765 43210
+                </motion.a>
               </motion.p>
 
               <motion.p
@@ -205,13 +230,20 @@ const Footer = () => {
                   <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
                     <MdLocationPin className="text-white text-lg flex-shrink-0 mt-1" />
                   </motion.span>
-                  <span className="text-base text-center lg:text-right">
+                  <motion.a
+                    href="https://share.google/A2oO6Vgy1AJho8pto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base text-center lg:text-right block"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
                     5-30, Sri Rama Towers, Opp New Govt Junior College,
                     <br />
                     Sangeet Nagar, Kukatpally, Hyderabad - 500072,
                     <br />
                     Telangana, India.
-                  </span>
+                  </motion.a>
                 </span>
               </motion.p>
             </motion.div>

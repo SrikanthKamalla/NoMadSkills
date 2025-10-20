@@ -162,7 +162,7 @@ const DataScience = () => {
                 className="inline-flex items-center space-x-2 bg-yellow-500 text-yellow-900 px-4 py-2 rounded-full mb-6 shadow-md"
               >
                 <Star className="w-4 h-4 fill-current" />
-                <span className="font-bold">Start learning for FREE</span>
+                <span className="font-bold">One Week Free Session</span>
               </motion.div>
 
               <motion.h2 variants={itemVariants} className="text-2xl font-bold text-gray-800 mb-4">

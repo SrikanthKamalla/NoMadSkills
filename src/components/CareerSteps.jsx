@@ -21,6 +21,7 @@ import {
   Server,
 } from "lucide-react";
 import certificate from "../assets/certificate.webp";
+import certificateIntership from "../assets/cerificateIntership.webp";
 
 const steps = [
   {
@@ -138,7 +139,7 @@ const steps = [
         type: "Internship Certificate",
         issuer: "DigitalEdify & Partner Companies",
         level: "Professional",
-        image: certificate,
+        image: certificateIntership,
         benefits: [
           "Real-world Experience",
           "Industry Exposure",

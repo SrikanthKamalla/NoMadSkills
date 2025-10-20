@@ -46,7 +46,7 @@ export default function PrivacyTerms() {
                 Introduction
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                We are <strong>MSS Education Technology Pvt. Ltd.</strong>, doing business as{" "}
+                We are <strong>Laxion Pvt. Ltd.</strong>, doing business as{" "}
                 <span className="font-semibold text-blue-600">Nomadskills @ Schools & Colleges</span>{" "}
                 ("Company," "we," "us," or "our"). This Privacy Policy describes how we collect, 
                 use, and disclose personal information when educational institutions, students, 
@@ -246,7 +246,7 @@ export default function PrivacyTerms() {
               </p>
               <div className="mt-4 p-4 bg-blue-50 rounded-lg">
                 <p className="text-gray-700">
-                  <strong>MSS Education Technology Pvt. Ltd.</strong><br />
+                  <strong>Laxion Pvt. Ltd.</strong><br />
                   Nomadskills @ Schools & Colleges Division<br />
                   Skillcamp & Skillarena Programs<br />
                   <a href="mailto:contact@nomadskills.in" className="text-blue-600 underline">

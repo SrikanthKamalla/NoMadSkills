@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
     {
       title: "Introduction",
       content: [
-        "We are MSS Education Technology Pvt. Ltd., doing business as Nomadskills ('Company,' 'we,' 'us,' 'our').",
+        "We are Laxion Pvt. Ltd., doing business as Nomadskills ('Company,' 'we,' 'us,' 'our').",
         "We operate a website (URL: https://www.nomadskills.in/) and mobile/tablet application (together called the 'Platform').",
         "The Platform provides online tutoring services for various subjects to children and adults.",
       ],
@@ -188,7 +188,7 @@ const TermsAndConditions = () => {
             </div>
             <div className="flex items-center justify-center gap-2">
               <span>🏢</span>
-              <span>MSS Education Technology Pvt. Ltd.</span>
+              <span>Laxion Pvt. Ltd.</span>
             </div>
           </div>
         </div>

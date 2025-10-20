@@ -7,66 +7,216 @@ import {
   CreditCard,
   Clock,
   ChevronDown,
+  Laptop,
+  Database,
+  Brain,
+  Server,
+  CardSim,
+  CreditCardIcon,
 } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const location = useLocation();
 
-  const faqData = [
+  /* ---------------------- GENERAL FAQs ---------------------- */
+  const generalFAQs = [
     {
-      question: "What is the duration of the MERN Stack course?",
+      question: "Are the classes live or recorded?",
       answer:
-        "The complete MERN Stack program is 29 weeks long, divided into 6 comprehensive modules. This includes 4 weeks of frontend foundation, 6 weeks of React, 5 weeks of backend with Node.js, 4 weeks of MongoDB, 4 weeks of full-stack integration, and 6 weeks of Data Structures & Algorithms.",
+        "We conduct live instructor-led sessions. However, all sessions are recorded and available in your dashboard for lifetime access.",
       icon: <Clock className="w-5 h-5" />,
     },
     {
-      question: "Do I need any prior coding experience to join this course?",
+      question: "Do I need prior experience to enroll?",
       answer:
-        "No prior coding experience is required! Our course is designed for absolute beginners. We start with the fundamentals of HTML, CSS, and JavaScript before moving to advanced topics. However, basic computer knowledge is recommended.",
-      icon: <BookOpen className="w-5 h-5" />,
-    },
-    {
-      question: "What kind of projects will I work on during the course?",
-      answer:
-        "You'll build 15+ real-world projects including a Portfolio Website, E-commerce Platform, Social Media App, REST API Server, Chat Application, and a complete MERN Stack Application. These projects will help you build a strong portfolio for job interviews.",
-      icon: <Users className="w-5 h-5" />,
-    },
-    {
-      question: "Is there any placement assistance after course completion?",
-      answer:
-        "Yes! We provide comprehensive placement support including resume building, 20+ mock interviews, interview preparation sessions, and direct referrals to our 200+ hiring partners. Our average placement rate is 95% with an average package of 7.4 LPA.",
-      icon: <MessageCircle className="w-5 h-5" />,
-    },
-    {
-      question: "What is the course fee and are there any EMI options?",
-      answer:
-        "We offer flexible payment options including EMI facilities with zero cost. The total course fee is ₹85,000 with multiple payment plans available. We also provide scholarships for meritorious students and early bird discounts.",
-      icon: <CreditCard className="w-5 h-5" />,
-    },
-    {
-      question: "Will I get certificate after course completion?",
-      answer:
-        "Yes, you'll receive a certificate of completion that is recognized by our 200+ hiring partners. The certificate demonstrates your proficiency in MERN Stack development and Data Structures & Algorithms.",
+        "No prior technical experience is required! Each course starts from scratch, making it beginner-friendly.",
       icon: <HelpCircle className="w-5 h-5" />,
     },
     {
-      question: "How much time should I dedicate daily for this course?",
+      question: "What is the course fee, and are EMI options available?",
       answer:
-        "We recommend dedicating 2-3 hours daily for learning and practice. The course includes live classes, self-paced content, assignments, and project work. Consistent daily practice is key to success in this program.",
+        "Yes, we offer flexible payment options, including zero-cost EMI facilities. The program fee varies depending on the Tech-Stack you choose. We also provide scholarships for meritorious students and early bird discounts.",
+      icon: <CreditCardIcon className="w-5 h-5 text-blue-600" />,
+    },
+    {
+      question: "Will I receive a certificate after completion?",
+      answer:
+        "Yes, you’ll receive an industry-recognized certificate upon successful completion of the course.",
+      icon: <BookOpen className="w-5 h-5" />,
+    },
+    {
+      question: "Is there any placement support?",
+      answer:
+        "Absolutely! We provide resume preparation, mock interviews, career guidance, and referrals to our 200+ hiring partners.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      question: "Can I switch batches if I miss classes?",
+      answer:
+        "Yes, you can switch batches or rejoin live classes at no additional cost. All sessions are recorded as well.",
+      icon: <MessageCircle className="w-5 h-5" />,
+    },
+    {
+      question: "How do I get doubt support?",
+      answer:
+        "You’ll have access to 1-on-1 mentorship sessions, doubt-solving live calls, and an active student community for 24x7 help.",
+      icon: <HelpCircle className="w-5 h-5" />,
+    },
+  ];
+
+  /* ---------------------- MERN STACK FAQs ---------------------- */
+  const mernFAQs = [
+    {
+      question: "What topics are covered in the MERN Stack course?",
+      answer:
+        "The course includes HTML, CSS, JavaScript, React.js, Node.js, Express, MongoDB, Git, and deployment with cloud hosting.",
+      icon: <Laptop className="w-5 h-5" />,
+    },
+    {
+      question: "What real-world projects will I build?",
+      answer:
+        "You'll develop 15+ projects including a Chat App, E-commerce Store, Portfolio, and Social Media Platform.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      question: "Is DSA included in the course?",
+      answer:
+        "Yes, we dedicate 6 weeks to Data Structures & Algorithms for mastering problem-solving and interview readiness.",
+      icon: <Brain className="w-5 h-5" />,
+    },
+    {
+      question: "How long does the MERN Stack course take?",
+      answer:
+        "It’s a 29-week structured program covering both frontend and backend with weekly projects.",
       icon: <Clock className="w-5 h-5" />,
     },
     {
-      question: "What if I miss a live class?",
+      question: "What are the career outcomes?",
       answer:
-        "All live classes are recorded and available in your student dashboard. You can access them anytime and watch at your convenience. Additionally, you can clear doubts in the next class or through our 1-on-1 mentorship sessions.",
+        "You can become a Frontend Developer, Backend Developer, or Full Stack Developer with average salaries ranging from 6–12 LPA.",
       icon: <BookOpen className="w-5 h-5" />,
     },
   ];
+
+  /* ---------------------- DATA SCIENCE FAQs ---------------------- */
+  const dataScienceFAQs = [
+    {
+      question: "What tools are taught in Data Science?",
+      answer: "We cover Python, Pandas, NumPy, Scikit-learn, TensorFlow, PowerBI, and Tableau.",
+      icon: <Database className="w-5 h-5" />,
+    },
+    {
+      question: "Will I learn Machine Learning and AI?",
+      answer:
+        "Yes! You’ll learn supervised and unsupervised ML, deep learning, and AI model deployment on cloud.",
+      icon: <Brain className="w-5 h-5" />,
+    },
+    {
+      question: "Do I need coding experience for Data Science?",
+      answer:
+        "No, you don’t. The course begins with Python fundamentals and gradually builds up to advanced ML concepts.",
+      icon: <HelpCircle className="w-5 h-5" />,
+    },
+    {
+      question: "What projects are included?",
+      answer:
+        "You’ll build predictive models, sentiment analysis apps, fraud detection systems, and data dashboards.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      question: "Is this course suitable for non-engineers?",
+      answer:
+        "Yes, anyone from math, business, or engineering backgrounds can learn Data Science effectively through this course.",
+      icon: <BookOpen className="w-5 h-5" />,
+    },
+  ];
+
+  /* ---------------------- DATA ANALYTICS FAQs ---------------------- */
+  const dataAnalyticsFAQs = [
+    {
+      question: "Which tools are used in the Data Analytics course?",
+      answer:
+        "The course covers SQL, Excel, Power BI, Python, and Google Analytics for end-to-end data analysis.",
+      icon: <Database className="w-5 h-5" />,
+    },
+    {
+      question: "What kind of projects will I complete?",
+      answer:
+        "You’ll analyze business performance, customer data, marketing metrics, and real-time datasets to derive insights.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      question: "Is coding necessary for analytics?",
+      answer:
+        "Not much! We use minimal Python. The focus is on data cleaning, visualization, and reporting with tools like Power BI.",
+      icon: <HelpCircle className="w-5 h-5" />,
+    },
+    {
+      question: "What roles can I apply for after the course?",
+      answer:
+        "You can work as a Data Analyst, Business Analyst, or BI Analyst in startups or large organizations.",
+      icon: <BookOpen className="w-5 h-5" />,
+    },
+    {
+      question: "How long is the Data Analytics course?",
+      answer:
+        "The program duration is 20 weeks with live sessions, hands-on projects, and assessments.",
+      icon: <Clock className="w-5 h-5" />,
+    },
+  ];
+
+  /* ---------------------- DEVOPS FAQs ---------------------- */
+  const devopsFAQs = [
+    {
+      question: "What technologies are covered in DevOps training?",
+      answer:
+        "Docker, Kubernetes, Jenkins, Terraform, AWS, Git, CI/CD pipelines, and Linux fundamentals are covered.",
+      icon: <Server className="w-5 h-5" />,
+    },
+    {
+      question: "Do I need a development background?",
+      answer:
+        "No, but basic programming or Linux knowledge helps. We cover everything from the basics.",
+      icon: <HelpCircle className="w-5 h-5" />,
+    },
+    {
+      question: "Are there hands-on labs included?",
+      answer:
+        "Yes, every concept includes hands-on practice through cloud labs and real project simulations.",
+      icon: <Laptop className="w-5 h-5" />,
+    },
+    {
+      question: "What kind of projects will I build?",
+      answer:
+        "You’ll automate deployments, create CI/CD pipelines, containerize apps, and deploy on AWS or GCP.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      question: "How long is the DevOps course?",
+      answer:
+        "It’s a 24-week intensive program designed to take you from beginner to job-ready DevOps engineer.",
+      icon: <Clock className="w-5 h-5" />,
+    },
+  ];
+
+  /* ---------------------- PATH-BASED LOGIC ---------------------- */
+  const path = location.pathname;
+  let faqData = [];
+
+  if (path === "/") faqData = generalFAQs;
+  else if (path === "/merncourse") faqData = [...mernFAQs, ...generalFAQs];
+  else if (path === "/datascience") faqData = [...dataScienceFAQs, ...generalFAQs];
+  else if (path === "/dataanalytics") faqData = [...dataAnalyticsFAQs, ...generalFAQs];
+  else if (path === "/devops") faqData = [...devopsFAQs, ...generalFAQs];
+  else faqData = generalFAQs; // fallback
 
   const toggleFAQ = index => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  /* ---------------------- RENDER ---------------------- */
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -85,8 +235,9 @@ const FAQ = () => {
           </h1>
 
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Find answers to common questions about our MERN Stack course, admissions process, and
-            career opportunities.
+            {path === "/"
+              ? "Find answers to general queries about our programs, admissions, and placements."
+              : `Find answers related to our ${path.replace("/", "")} course and common questions.`}
           </p>
         </div>
 

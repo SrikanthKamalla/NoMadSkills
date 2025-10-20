@@ -11,7 +11,7 @@ export default function AboutUs() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
         >
-          Welcome to Nomad Skills!
+          Welcome to NomadSkills!
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -19,7 +19,7 @@ export default function AboutUs() {
           transition={{ delay: 0.2 }}
           className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-600 leading-relaxed"
         >
-          At <span className="font-semibold text-blue-600">Nomad Skills</span>, we
+          At <span className="font-semibold text-blue-600">NomadSkills</span>, we
           strive to bridge the gap between academia and the industry — providing
           skill education and training on cutting-edge technologies.
         </motion.p>
@@ -51,7 +51,7 @@ export default function AboutUs() {
       {/* Why Choose Us Section */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-          Why Choose Nomad Skills?
+          Why Choose NomadSkills?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -88,7 +88,7 @@ export default function AboutUs() {
             },
             {
               title: "Driven by Passion",
-              desc: "Every course, mentor, and community event at Nomad Skills is fueled by our passion to see you succeed.",
+              desc: "Every course, mentor, and community event at NomadSkills is fueled by our passion to see you succeed.",
               icon: Heart,
               color: "from-pink-500 to-rose-500",
             },
@@ -121,7 +121,7 @@ export default function AboutUs() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl sm:text-4xl font-bold mb-4"
         >
-          Join the Nomad Skills Revolution
+          Join the NomadSkills Revolution
         </motion.h3>
         <motion.p
           initial={{ opacity: 0 }}
