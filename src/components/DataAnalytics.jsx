@@ -195,9 +195,12 @@ const DataAnalytics = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name,course:"Data Analytics" });
+                    const result = await sendEmail({
+                      phone: number,
+                      name: name,
+                      course: "Data Analytics",
+                    });
                     if (result.success) {
-                      toast("Query sent successfully");
                       setNumber("");
                       setName("");
                     } else {

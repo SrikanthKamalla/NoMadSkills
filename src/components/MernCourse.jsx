@@ -197,9 +197,12 @@ const MernCourse = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name,course:"Mern Stack" });
+                    const result = await sendEmail({
+                      phone: number,
+                      name: name,
+                      course: "Mern Stack",
+                    });
                     if (result.success) {
-                      toast("Query sent successfully");
                       setNumber("");
                       setName("");
                     } else {

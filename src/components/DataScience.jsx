@@ -196,9 +196,12 @@ const DataScience = () => {
 
                 <motion.button
                   onClick={async () => {
-                    const result = await sendEmail({ phone: number, name: name,course:"Data Science" });
+                    const result = await sendEmail({
+                      phone: number,
+                      name: name,
+                      course: "Data Science",
+                    });
                     if (result.success) {
-                      toast("Query sent successfully");
                       setNumber("");
                       setName("");
                     } else {
