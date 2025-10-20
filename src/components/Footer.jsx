@@ -179,7 +179,7 @@ const Footer = () => {
                   <motion.span whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
                     <MdMail className="text-white text-lg" />
                   </motion.span>
-                  <span>contact@nomadskills.com</span>
+                  <span>contact@nomadskills.in</span>
                 </span>
               </motion.p>
               <motion.p
