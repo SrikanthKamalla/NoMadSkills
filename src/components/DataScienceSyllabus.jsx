@@ -410,7 +410,7 @@ const DataScienceSyllabus = () => {
 
         {/* Syllabus Layout */}
         <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
-          {/* Module Navigation */}
+          {/* Module Navigation - Fixed responsive tabs */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -436,36 +436,36 @@ const DataScienceSyllabus = () => {
                         : `border-gray-100 bg-white hover:border-purple-300 hover:bg-purple-25`
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className={`p-2 rounded-lg bg-gradient-to-r ${module.color} text-white`}
-                        >
-                          {module.icon}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-gray-900 truncate">{module.title}</h4>
-                          <div className="flex items-center space-x-3 mt-1 text-xs text-gray-600">
-                            <span className="flex items-center space-x-1">
-                              <Clock className="w-3 h-3" />
-                              <span>{module.duration}</span>
-                            </span>
-                            <span
-                              className={`px-2 py-1 rounded-full ${
-                                module.level === "Beginner"
-                                  ? "bg-green-100 text-green-800"
-                                  : module.level === "Intermediate"
-                                    ? "bg-yellow-100 text-yellow-800"
-                                    : "bg-red-100 text-red-800"
-                              }`}
-                            >
-                              {module.level}
-                            </span>
-                          </div>
+                    <div className="flex items-start space-x-3">
+                      <div
+                        className={`p-2 rounded-lg bg-gradient-to-r ${module.color} text-white flex-shrink-0 mt-1`}
+                      >
+                        {module.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base leading-tight sm:leading-normal break-words">
+                          {module.title}
+                        </h4>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 text-xs text-gray-600 space-y-1 sm:space-y-0">
+                          <span className="flex items-center space-x-1">
+                            <Clock className="w-3 h-3" />
+                            <span>{module.duration}</span>
+                          </span>
+                          <span
+                            className={`px-2 py-1 rounded-full w-fit ${
+                              module.level === "Beginner"
+                                ? "bg-green-100 text-green-800"
+                                : module.level === "Intermediate"
+                                  ? "bg-yellow-100 text-yellow-800"
+                                  : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {module.level}
+                          </span>
                         </div>
                       </div>
                       <ChevronRight
-                        className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 ${
+                        className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 mt-1 ${
                           activeModule === module.id ? "rotate-90 text-purple-600" : ""
                         }`}
                       />
@@ -524,14 +524,14 @@ const DataScienceSyllabus = () => {
 
               {/* Module Content */}
               <div className="p-6 lg:p-8">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                   {/* Topics Section */}
                   <div className="lg:col-span-2">
                     <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
                       <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-purple-600" />
                       <span>What You'll Learn</span>
                     </h3>
-                    <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                       {activeModuleData.topics.map((topic, index) => (
                         <motion.div
                           key={index}
@@ -539,10 +539,10 @@ const DataScienceSyllabus = () => {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
                           whileHover={{ scale: 1.02 }}
-                          className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 group hover:bg-white hover:shadow-md transition-all duration-300"
+                          className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 group hover:bg-white hover:shadow-md transition-all duration-300"
                         >
-                          <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-green-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="text-gray-700 font-medium text-sm lg:text-base">
+                          <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-green-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                          <span className="text-gray-700 font-medium text-sm lg:text-base leading-relaxed">
                             {topic}
                           </span>
                         </motion.div>
@@ -566,10 +566,10 @@ const DataScienceSyllabus = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 + 0.3 }}
                             whileHover={{ x: 5 }}
-                            className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg border border-green-200 group"
+                            className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg border border-green-200 group"
                           >
-                            <FileText className="w-4 h-4 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700 font-medium text-sm lg:text-base">
+                            <FileText className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700 font-medium text-sm lg:text-base leading-relaxed">
                               {project}
                             </span>
                           </motion.div>
@@ -591,7 +591,7 @@ const DataScienceSyllabus = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 + 0.5 }}
                             whileHover={{ scale: 1.05 }}
-                            className="px-2 py-1 lg:px-3 lg:py-2 bg-orange-100 text-orange-800 rounded-full text-xs lg:text-sm font-medium border border-orange-200"
+                            className="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium border border-orange-200"
                           >
                             {skill}
                           </motion.span>
