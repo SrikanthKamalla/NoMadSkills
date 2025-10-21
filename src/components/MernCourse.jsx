@@ -97,7 +97,7 @@ const MernCourse = () => {
               className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
             >
               <a href="/MERN Full Stack Brochure.pdf" download>
-                Download Browcher
+                Download Brochure
               </a>
             </motion.button>
           </motion.header>
