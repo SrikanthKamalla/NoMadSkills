@@ -38,7 +38,7 @@ const StepsToSuccess = () => {
         content: [
           {
             type: "image",
-            src: "https://storage.googleapis.com/acciojob-open-file-collections/a8d2b970-bd0f-474a-9783-82fb7c8f3515_Instructor%20Teaching%20Image.png",
+            src: "/classroom.jpg",
             alt: "Expert-led learning sessions",
           },
           {
@@ -69,7 +69,7 @@ const StepsToSuccess = () => {
         content: [
           {
             type: "image",
-            src: "https://storage.googleapis.com/acciojob-open-file-collections/5e2db0c4-837e-45ec-9933-e748597b15fd_Counselling%20room%20image.png",
+            src: "/One-one session.png",
             alt: "Personal mentorship sessions",
           },
           {
@@ -104,7 +104,7 @@ const StepsToSuccess = () => {
         content: [
           {
             type: "image",
-            src: "https://storage.googleapis.com/acciojob-open-file-collections/39a772a5-fde4-4082-88a5-2d6e5505b121_Project%201.png",
+            src: "/Project.png",
             alt: "Hands-on project development",
           },
           {
@@ -134,14 +134,14 @@ const StepsToSuccess = () => {
         content: [
           {
             type: "image",
-            src: "https://storage.googleapis.com/acciojob-open-file-collections/9b6108d7-4244-4f20-91a8-8a3b7209c44e_Online%20Interview%20Image%202.png",
+            src: "/Mock.png",
             alt: "Mock interview practice",
           },
           {
             type: "stats",
             stats: [
               {
-                value: "20+",
+                value: "10+",
                 label: "Mock Interviews",
                 description: "With industry experts",
                 icon: <CheckCircle className="w-5 h-5 text-green-500" />,
@@ -163,10 +163,9 @@ const StepsToSuccess = () => {
         description: "Get placed in top companies with our comprehensive placement support system",
         content: [
           {
-            type: "video",
-            src: "https://storage.googleapis.com/acciojob-open-file-collections/282c4e8f-0bcc-429e-a35e-6601a82d7e09_390x354%20Web%20(1).mp4",
-            poster:
-              "https://storage.googleapis.com/acciojob-open-file-collections/f3c6a303-9ae8-40fb-8f05-013c41d7fb7d_web%20post.jpg",
+            type: "image",
+            src: "https://storage.googleapis.com/acciojob-open-file-collections/f3c6a303-9ae8-40fb-8f05-013c41d7fb7d_web%20post.jpg",
+            alt: "Career Launch",
           },
           {
             type: "stats",
@@ -392,26 +391,6 @@ const StepsToSuccess = () => {
                       <div className="aspect-video relative">
                         <img src={item.src} alt={item.alt} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      </div>
-                    )}
-
-                    {item.type === "video" && (
-                      <div className="aspect-video relative bg-gray-900 rounded-t-2xl">
-                        <video
-                          src={item.src}
-                          poster={item.poster}
-                          controls
-                          className="w-full h-full object-cover rounded-t-2xl"
-                          onPlay={() => setIsPlaying(true)}
-                          onPause={() => setIsPlaying(false)}
-                        />
-                        {!isPlaying && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-20 h-20 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center border border-white/30">
-                              <Play className="w-8 h-8 text-white" />
-                            </div>
-                          </div>
-                        )}
                       </div>
                     )}
 

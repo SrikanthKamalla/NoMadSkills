@@ -52,8 +52,8 @@ const Devops = () => {
 
   const stats = [
     { number: "95%", label: "Placement Rate" },
-    { number: "50K+", label: "Students Trained" },
-    { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
+    { number: "10K+", label: "Students Trained" },
+    { number: "4.6", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
   ];
   const navigate = useNavigate();
 
