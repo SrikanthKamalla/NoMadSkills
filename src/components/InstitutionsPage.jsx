@@ -27,7 +27,7 @@ const Institutions = () => {
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             We provide comprehensive educational packages customized to the needs of your institution. 
-            Our <strong>Skillcamp Courses</strong> together with <strong>Skillarena Competitions</strong> 
+            Our <strong>Skillcamp Courses</strong> together with <strong>Skillarena Competitions </strong> 
             augment traditional classroom teaching and provide an impetus to go beyond.
           </p>
         </div>
