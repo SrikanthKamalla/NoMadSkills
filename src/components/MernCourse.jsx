@@ -52,7 +52,7 @@ const MernCourse = () => {
 
   const stats = [
     { number: "95%", label: "Placement Rate" },
-    { number: "50K+", label: "Students Trained" },
+    { number: "10K+", label: "Students Trained" },
     { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
   ];
   const navigate = useNavigate();
@@ -83,20 +83,22 @@ const MernCourse = () => {
               <span className="text-xl font-bold text-gray-800"></span>
             </motion.div>
             <motion.button
-              onClick={async () => {
-                await navigate("/");
-                setTimeout(() => {
-                  const el = document.getElementById("courses");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }, 500);
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#0d77cf] hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
+              // onClick={async () => {
+              //   await navigate("/");
+              //   setTimeout(() => {
+              //     const el = document.getElementById("courses");
+              //     if (el) {
+              //       el.scrollIntoView({ behavior: "smooth" });
+              //     }
+              //   }, 500);
+              // }}
+              // whileHover={{ scale: 1.05 }}
+              // whileTap={{ scale: 0.95 }}
+              className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
             >
-              Browse Courses
+              <a href="/MERN Full Stack Brochure.pdf" download>
+                Download Browcher
+              </a>
             </motion.button>
           </motion.header>
 
