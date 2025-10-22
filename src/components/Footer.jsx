@@ -7,6 +7,7 @@ import {
   FaMap,
   FaMapMarked,
   FaMapSigns,
+  FaFacebook,
 } from "react-icons/fa";
 import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
@@ -92,8 +93,8 @@ const Footer = () => {
               <motion.div
                 role="button"
                 onClick={() => window.scrollTo(0, 0)}
-                className="flex items-center space-x-3"
-                whileHover={{ scale: 1.02 }}
+                className="flex items-center space-x-3 cursor-pointer"
+                // whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
                 {/* <motion.div
@@ -106,7 +107,7 @@ const Footer = () => {
                 <motion.img
                   src={nslogo}
                   alt="NomadSkills"
-                  className="navbar-logo w-48 sm:w-40 object-cover bg-white rounded-lg  shadow-md"
+                  className="navbar-logo w-48 sm:w-44 object-cover bg-white rounded-lg  shadow-md"
                 />
               </motion.div>
 
@@ -152,7 +153,7 @@ const Footer = () => {
                   <FaInstagram className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
                 <motion.a
-                  href="https://www.google.com/maps/dir//Pillar+No.830,+Sree+Rama+Towers,+Towards,+Y+Junction,+opp.+New+Govt+Jr+College,+Sangeet+Nagar,+Kukatpally,+Hyderabad,+Telangana+500072/@17.4815634,78.3342631,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3bcb91f38c578bd1:0x73216ee01d57e613!2m2!1d78.4166649!2d17.4815804?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.facebook.com/profile.php?id=61559459916434"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
@@ -160,7 +161,7 @@ const Footer = () => {
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaMap className="text-base text-white hover:text-[#0d77cf]" />
+                  <FaFacebookF className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
               </motion.div>
             </div>
@@ -211,12 +212,12 @@ const Footer = () => {
                 </motion.span>
                 <motion.a
                   target="_blank"
-                  href="tel:+919876543210"
+                  href="tel:+916301604347"
                   className="text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  +91 98765 43210
+                  +91 63016 04347
                 </motion.a>
               </motion.p>
 

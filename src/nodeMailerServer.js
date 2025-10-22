@@ -1,10 +1,10 @@
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 
-export const sendEmail = async ({ name, title,course, phone, email, message }) => {
+export const sendEmail = async ({ name, title,course, phone, email, message ,designation,institutionName}) => {
   const currentTime = new Date().toLocaleString();
 
-  console.log("Sending email...");
+  console.log("Sending email..."); 
 
   // Validate required fields
   if (!name || !phone ) {
@@ -13,7 +13,7 @@ export const sendEmail = async ({ name, title,course, phone, email, message }) =
     return { success: false, error: "Name and phone are required" };
   }
 
-  try {
+  try { 
     const result = await emailjs.send(
       "service_88pyx5l",
       "template_jcsaiuj",
@@ -25,6 +25,8 @@ export const sendEmail = async ({ name, title,course, phone, email, message }) =
         course,
         time: currentTime,
         message: message || "No message provided",
+        designation:designation||"No Designation provided",
+        institutionName:institutionName||"No Institution name provided"
       },
       "gcNdaKW35Hd9-2JWi"
     );

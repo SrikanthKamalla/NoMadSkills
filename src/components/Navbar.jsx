@@ -191,7 +191,7 @@ const Navbar = () => {
           onKeyDown={e => {
             if (e.key === "Enter") handleLogoClick();
           }}
-          whileHover={{ scale: 1.05 }}
+          // whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         >
@@ -205,7 +205,7 @@ const Navbar = () => {
           <motion.img
             src={nslogo}
             alt="NomadSkills"
-            className="navbar-logo w-48 sm:w-40 object-cover bg-white rounded-lg  shadow-md"
+            className="navbar-logo w-48 sm:w-44 object-cover bg-white rounded-lg  shadow-md"
           />
         </motion.div>
 

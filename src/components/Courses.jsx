@@ -58,7 +58,7 @@ const courses = [
     id: "devops",
     navigateTo: "/devops",
     title: "DevOps & Cloud Engineering",
-    duration: "7 MONTHS",
+    duration: "6 MONTHS",
     color: "from-cyan-500 to-blue-500",
     accent: "bg-gradient-to-r from-cyan-500 to-blue-500",
     buttonGradient: "from-cyan-600 to-blue-600",
@@ -114,7 +114,7 @@ const courses = [
     id: "datascience",
     navigateTo: "/datascience",
     title: "Data Science & Machine Learning",
-    duration: "10 MONTHS",
+    duration: "6 MONTHS",
     color: "from-indigo-500 to-purple-500",
     accent: "bg-gradient-to-r from-indigo-500 to-purple-500",
     buttonGradient: "from-indigo-600 to-purple-600",
@@ -243,10 +243,10 @@ const Courses = () => {
                       <Clock size={16} />
                       {currentCourse.duration}
                     </span>
-                    <span className="flex items-center gap-1">
+                    {/* <span className="flex items-center gap-1">
                       <Users size={16} />
                       {currentCourse.stats.students} Enrolled
-                    </span>
+                    </span> */}
                   </div>
                 </div>
                 <div className="inline-flex items-center whitespace-nowrap gap-1 bg-yellow-400/40 text-yellow-700 p-3 rounded-full text-sm leading-none shadow-md">
