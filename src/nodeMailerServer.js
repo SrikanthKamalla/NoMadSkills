@@ -30,7 +30,7 @@ export const sendEmail = async ({ name, title,course, phone, email, message ,des
       },
       "gcNdaKW35Hd9-2JWi"
     );
-    toast("successfully registered for call back");
+    toast("🎉 successfully registered for call back");
     console.log("✅ Email sent successfully:", result.text);
     return { success: true, result: result.text };
   } catch (error) {
