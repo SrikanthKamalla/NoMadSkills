@@ -18,6 +18,8 @@ import FAQ from "./FAQ";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
+import Modal from "./Modal";
+import RequestCallForm from "./RequestCallForm";
 
 const MernCourse = () => {
   const [number, setNumber] = useState("");
@@ -163,6 +165,10 @@ const MernCourse = () => {
               className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
             >
               Download Curriculum
+            <motion.button className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg">
+              <a href="/MERN Full Stack Brochure.pdf" download>
+                Download Brochure
+              </a>
             </motion.button>
           </motion.header>
 
@@ -204,17 +210,7 @@ const MernCourse = () => {
               </motion.div>
 
               {/* Stats */}
-              <motion.div variants={itemVariants} className="flex space-x-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-800">
-                      <span>{stat.number}</span>
-                      {stat.icon}
-                    </div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              <motion.div variants={itemVariants} className="flex space-x-8"></motion.div>
             </motion.div>
 
             {/* Right Content - Form */}

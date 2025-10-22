@@ -206,17 +206,7 @@ const Devops = () => {
               </motion.div>
 
               {/* Stats */}
-              <motion.div variants={itemVariants} className="flex space-x-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-800">
-                      <span>{stat.number}</span>
-                      {stat.icon}
-                    </div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              <motion.div variants={itemVariants} className="flex space-x-8"></motion.div>
             </motion.div>
 
             {/* Right Content - Form */}

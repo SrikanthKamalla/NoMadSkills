@@ -38,8 +38,7 @@ const DataScienceSyllabus = () => {
       id: 1,
       title: "Data & Machine Learning Foundations",
       icon: <Brain className="w-6 h-6" />,
-      duration: "6 Weeks",
-      level: "Beginner",
+
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
       borderColor: "border-blue-200",
@@ -67,8 +66,7 @@ const DataScienceSyllabus = () => {
       id: 2,
       title: "Advanced ML & Model Optimization",
       icon: <Cpu className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Intermediate",
+
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
       borderColor: "border-green-200",
@@ -92,8 +90,7 @@ const DataScienceSyllabus = () => {
       id: 3,
       title: "Deep Learning & Neural Networks",
       icon: <Brain className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Intermediate",
+
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
       borderColor: "border-purple-200",
@@ -117,8 +114,7 @@ const DataScienceSyllabus = () => {
       id: 4,
       title: "Natural Language Processing",
       icon: <MessageCircle className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Intermediate",
+
       color: "from-orange-500 to-red-500",
       bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
       borderColor: "border-orange-200",
@@ -142,8 +138,7 @@ const DataScienceSyllabus = () => {
       id: 5,
       title: "Model Deployment & MLOps",
       icon: <Cloud className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Advanced",
+
       color: "from-indigo-500 to-purple-500",
       bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50",
       borderColor: "border-indigo-200",
@@ -167,8 +162,7 @@ const DataScienceSyllabus = () => {
       id: 6,
       title: "Data Engineering & Pipelines",
       icon: <Database className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Advanced",
+
       color: "from-teal-500 to-blue-500",
       bgColor: "bg-gradient-to-br from-teal-50 to-blue-50",
       borderColor: "border-teal-200",
@@ -192,8 +186,7 @@ const DataScienceSyllabus = () => {
       id: 7,
       title: "Generative AI & LLM Fundamentals",
       icon: <Zap className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Advanced",
+
       color: "from-yellow-500 to-orange-500",
       bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
       borderColor: "border-yellow-200",
@@ -217,8 +210,7 @@ const DataScienceSyllabus = () => {
       id: 8,
       title: "Fine-Tuning & Custom LLM Applications",
       icon: <Code className="w-6 h-6" />,
-      duration: "5 Weeks",
-      level: "Advanced",
+
       color: "from-red-500 to-pink-500",
       bgColor: "bg-gradient-to-br from-red-50 to-pink-50",
       borderColor: "border-red-200",
@@ -242,8 +234,7 @@ const DataScienceSyllabus = () => {
       id: 9,
       title: "Capstone Project & Career Readiness",
       icon: <Award className="w-6 h-6" />,
-      duration: "4 Weeks",
-      level: "Advanced",
+
       color: "from-purple-500 to-indigo-500",
       bgColor: "bg-gradient-to-br from-purple-50 to-indigo-50",
       borderColor: "border-purple-200",
@@ -286,7 +277,7 @@ const DataScienceSyllabus = () => {
 
   // Stats based on PDF data
   const stats = [
-    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "5 Months" },
+    { icon: <Clock className="w-5 h-5" />, label: "Duration", value: "36 weeks" },
     { icon: <BookOpen className="w-5 h-5" />, label: "Modules", value: "9" },
     { icon: <Target className="w-5 h-5" />, label: "Projects", value: "8+ Mini + Capstone" },
     { icon: <CheckCircle className="w-5 h-5" />, label: "Skills", value: "25+" },
@@ -408,7 +399,7 @@ const DataScienceSyllabus = () => {
           </div>
         </motion.div>
 
-        {/* Syllabus Layout */}
+        {/* Enhanced Syllabus Layout - Fixed Responsiveness */}
         <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
           {/* Module Navigation - Fixed responsive tabs */}
           <motion.div
@@ -417,66 +408,52 @@ const DataScienceSyllabus = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4"
           >
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6 h-[600px] flex flex-col">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center space-x-2">
                 <BookOpen className="w-5 h-5 text-purple-600" />
-                <span>5-Month Learning Path</span>
+                <span>Learning Path</span>
               </h3>
 
-              <div className="space-y-3 max-h-[600px] overflow-y-auto">
-                {syllabusData.map((module, index) => (
-                  <motion.button
-                    key={module.id}
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setActiveModule(module.id)}
-                    className={`w-full text-left p-4 rounded-xl transition-all duration-300 border-2 ${
-                      activeModule === module.id
-                        ? `border-purple-500 bg-purple-50 shadow-md`
-                        : `border-gray-100 bg-white hover:border-purple-300 hover:bg-purple-25`
-                    }`}
-                  >
-                    <div className="flex items-start space-x-3">
-                      <div
-                        className={`p-2 rounded-lg bg-gradient-to-r ${module.color} text-white flex-shrink-0 mt-1`}
-                      >
-                        {module.icon}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base leading-tight sm:leading-normal break-words">
-                          {module.title}
-                        </h4>
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 text-xs text-gray-600 space-y-1 sm:space-y-0">
-                          <span className="flex items-center space-x-1">
-                            <Clock className="w-3 h-3" />
-                            <span>{module.duration}</span>
-                          </span>
-                          <span
-                            className={`px-2 py-1 rounded-full w-fit ${
-                              module.level === "Beginner"
-                                ? "bg-green-100 text-green-800"
-                                : module.level === "Intermediate"
-                                  ? "bg-yellow-100 text-yellow-800"
-                                  : "bg-red-100 text-red-800"
-                            }`}
-                          >
-                            {module.level}
-                          </span>
+              <div className="flex-1 overflow-y-auto">
+                <div className="space-y-3">
+                  {syllabusData.map((module, index) => (
+                    <motion.button
+                      key={module.id}
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setActiveModule(module.id)}
+                      className={`w-full text-left p-4 rounded-xl transition-all duration-300 border-2 ${
+                        activeModule === module.id
+                          ? `border-purple-500 bg-purple-50 shadow-md`
+                          : `border-gray-100 bg-white hover:border-purple-300 hover:bg-purple-25`
+                      }`}
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div
+                          className={`p-2 rounded-lg bg-gradient-to-r ${module.color} text-white flex-shrink-0 mt-1`}
+                        >
+                          {module.icon}
                         </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-gray-900 text-sm sm:text-base leading-tight sm:leading-normal break-words">
+                            {module.title}
+                          </h4>
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-2 text-xs text-gray-600 space-y-1 sm:space-y-0"></div>
+                        </div>
+                        <ChevronRight
+                          className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 mt-1 ${
+                            activeModule === module.id ? "rotate-90 text-purple-600" : ""
+                          }`}
+                        />
                       </div>
-                      <ChevronRight
-                        className={`w-4 h-4 text-gray-400 transition-transform flex-shrink-0 mt-1 ${
-                          activeModule === module.id ? "rotate-90 text-purple-600" : ""
-                        }`}
-                      />
-                    </div>
-                  </motion.button>
-                ))}
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Module Details */}
+          {/* Module Details - Fixed responsive layout */}
           <motion.div
             key={activeModule}
             initial={{ opacity: 0, x: 20 }}
@@ -485,10 +462,12 @@ const DataScienceSyllabus = () => {
             className="lg:col-span-8"
           >
             <div
-              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden`}
+              className={`bg-white rounded-2xl shadow-lg border-2 ${activeModuleData.borderColor} overflow-hidden h-[600px] flex flex-col`}
             >
               {/* Module Header */}
-              <div className={`bg-gradient-to-r ${activeModuleData.color} p-6 lg:p-8 text-white`}>
+              <div
+                className={`bg-gradient-to-r ${activeModuleData.color} p-6 lg:p-8 text-white flex-shrink-0`}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-4">
@@ -502,16 +481,7 @@ const DataScienceSyllabus = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4 text-sm">
-                      <span className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full">
-                        <Clock className="w-4 h-4" />
-                        <span>{activeModuleData.duration}</span>
-                      </span>
-                      <span className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full">
-                        <BarChart3 className="w-4 h-4" />
-                        <span>{activeModuleData.level}</span>
-                      </span>
-                    </div>
+                    <div className="flex items-center space-x-4 text-sm"></div>
                   </div>
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -522,116 +492,121 @@ const DataScienceSyllabus = () => {
                 </div>
               </div>
 
-              {/* Module Content */}
-              <div className="p-6 lg:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {/* Topics Section */}
-                  <div className="lg:col-span-2">
-                    <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
-                      <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-purple-600" />
-                      <span>What You'll Learn</span>
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
-                      {activeModuleData.topics.map((topic, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          whileHover={{ scale: 1.02 }}
-                          className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 group hover:bg-white hover:shadow-md transition-all duration-300"
-                        >
-                          <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-green-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                          <span className="text-gray-700 font-medium text-sm lg:text-base leading-relaxed">
-                            {topic}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Projects & Skills Sidebar */}
-                  <div className="space-y-6 lg:space-y-8">
-                    {/* Projects */}
-                    <div>
-                      <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-3 lg:mb-4">
-                        <Target className="w-5 h-5 text-green-600" />
-                        <span>Hands-on Projects</span>
+              {/* Module Content - Improved responsive layout */}
+              <div className="flex-1 flex flex-col min-h-0">
+                {/* Scrollable Content Area */}
+                <div className="flex-1 overflow-y-auto p-6 lg:p-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {/* Topics Section */}
+                    <div className="lg:col-span-2">
+                      <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-4 lg:mb-6">
+                        <PlayCircle className="w-5 h-5 lg:w-6 lg:h-6 text-purple-600" />
+                        <span>What You'll Learn</span>
                       </h3>
-                      <div className="space-y-2 lg:space-y-3">
-                        {activeModuleData.projects.map((project, index) => (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+                        {activeModuleData.topics.map((topic, index) => (
                           <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 + 0.3 }}
-                            whileHover={{ x: 5 }}
-                            className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg border border-green-200 group"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            whileHover={{ scale: 1.02 }}
+                            className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200 group hover:bg-white hover:shadow-md transition-all duration-300"
                           >
-                            <FileText className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-green-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                             <span className="text-gray-700 font-medium text-sm lg:text-base leading-relaxed">
-                              {project}
+                              {topic}
                             </span>
                           </motion.div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Skills */}
-                    <div>
-                      <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-3 lg:mb-4">
-                        <Star className="w-5 h-5 text-orange-500" />
-                        <span>Skills Gained</span>
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {activeModuleData.skills.map((skill, index) => (
-                          <motion.span
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1 + 0.5 }}
-                            whileHover={{ scale: 1.05 }}
-                            className="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium border border-orange-200"
-                          >
-                            {skill}
-                          </motion.span>
-                        ))}
+                    {/* Projects & Skills Sidebar */}
+                    <div className="space-y-6 lg:space-y-8">
+                      {/* Projects */}
+                      <div>
+                        <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-3 lg:mb-4">
+                          <Target className="w-5 h-5 text-green-600" />
+                          <span>Hands-on Projects</span>
+                        </h3>
+                        <div className="space-y-2 lg:space-y-3">
+                          {activeModuleData.projects.map((project, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: 10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.1 + 0.3 }}
+                              whileHover={{ x: 5 }}
+                              className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg border border-green-200 group"
+                            >
+                              <FileText className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 font-medium text-sm lg:text-base leading-relaxed">
+                                {project}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Skills */}
+                      <div>
+                        <h3 className="flex items-center space-x-2 text-lg lg:text-xl font-bold text-gray-900 mb-3 lg:mb-4">
+                          <Star className="w-5 h-5 text-orange-500" />
+                          <span>Skills Gained</span>
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {activeModuleData.skills.map((skill, index) => (
+                            <motion.span
+                              key={index}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: index * 0.1 + 0.5 }}
+                              whileHover={{ scale: 1.05 }}
+                              className="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium border border-orange-200"
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-between mt-6 lg:mt-8">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={prevModule}
-                    disabled={activeModule === 1}
-                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
-                      activeModule === 1
-                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        : "bg-purple-600 text-white hover:bg-purple-700"
-                    }`}
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                    <span>Previous</span>
-                  </motion.button>
+                {/* Navigation Buttons - Always visible at bottom */}
+                <div className="flex-shrink-0 border-t border-gray-200 bg-gray-50 p-6">
+                  <div className="flex justify-between">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={prevModule}
+                      disabled={activeModule === 1}
+                      className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                        activeModule === 1
+                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          : "bg-purple-600 text-white hover:bg-purple-700"
+                      }`}
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                      <span>Previous</span>
+                    </motion.button>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={nextModule}
-                    disabled={activeModule === syllabusData.length}
-                    className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
-                      activeModule === syllabusData.length
-                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        : "bg-pink-600 text-white hover:bg-pink-700"
-                    }`}
-                  >
-                    <span>Next</span>
-                    <ChevronRight className="w-5 h-5" />
-                  </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={nextModule}
+                      disabled={activeModule === syllabusData.length}
+                      className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                        activeModule === syllabusData.length
+                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          : "bg-pink-600 text-white hover:bg-pink-700"
+                      }`}
+                    >
+                      <span>Next</span>
+                      <ChevronRight className="w-5 h-5" />
+                    </motion.button>
+                  </div>
                 </div>
               </div>
             </div>
