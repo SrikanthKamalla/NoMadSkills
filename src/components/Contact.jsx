@@ -32,7 +32,7 @@ const Contact = () => {
 
       // Simulate API delay for demo
       const { name, phone, info } = formData;
-      await sendEmail({ name, phone, message: info });
+      await sendEmail({ name, phone, message: info,title:"Query or Contact Request" });
       setIsModalOpen(false);
       setFormData({ name: "", phone: "", info: "" });
     } catch (error) {
@@ -51,7 +51,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-4"
+            className="text-4xl sm:text-5xl font-bold text-transparent pb-1 bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-4"
           >
             Ready to Explore?
           </motion.h1>

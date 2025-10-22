@@ -107,6 +107,7 @@ const CallbackForm = ({ title = "Request a Callback", onClose, onSuccess }) => {
       try {
         console.log(data);
         const result = await sendEmail({
+          title:"Requested Call back",
           phone: data.phone,
           name: data.name,
           email: data.email,

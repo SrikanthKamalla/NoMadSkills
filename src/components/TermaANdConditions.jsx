@@ -120,7 +120,7 @@ const TermsAndConditions = () => {
             Terms & Conditions
           </h1>
           <p className="text-lg text-gray-600">
-            Last updated: {new Date().toLocaleDateString("en-IN")}
+            Last updated: {new Date(2025,9,19).toLocaleDateString("en-IN")}
           </p>
         </div>
 

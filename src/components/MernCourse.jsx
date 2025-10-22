@@ -10,6 +10,7 @@ import {
   Star,
   Shield,
   Target,
+  X,
 } from "lucide-react";
 import MernSyllabus from "./MernSyllabus";
 import StepsToSuccess from "./StepsToSuccess";
@@ -21,6 +22,9 @@ import { toast } from "react-toastify";
 const MernCourse = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [canDownload, setCanDownload] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,10 +56,80 @@ const MernCourse = () => {
 
   const stats = [
     { number: "95%", label: "Placement Rate" },
-    { number: "10K+", label: "Students Trained" },
     { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
   ];
+
   const navigate = useNavigate();
+
+  const handleDownloadSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!name || !number) {
+      toast.warning("Please fill in all fields!");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const result = await sendEmail({
+        phone: number,
+        name: name,
+        course: "Mern Stack",
+      });
+
+      if (result.success) {
+        toast.success("Details submitted successfully! Downloading syllabus...");
+        setCanDownload(true);
+        
+        // Close modal after a short delay
+        setTimeout(() => {
+          setIsModalOpen(false);
+          // Trigger download
+          const link = document.createElement('a');
+          link.href = '/MERN Full Stack Brochure.pdf';
+          link.download = 'MERN_Full_Stack_Syllabus.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }, 1000);
+      } else {
+        toast.error("Failed to submit details. Please try again!");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleMainFormSubmit = async () => {
+    if (!name || !number) {
+      toast.warning("Please fill in all fields!");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const result = await sendEmail({
+        phone: number,
+        name: name,
+        course: "Mern Stack",
+      });
+
+      if (result.success) {
+        setNumber("");
+        setName("");
+      } else {
+        toast.error("Failed to send query");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen mt-6 bg-gradient-to-br from-blue-50 via-blue-100 to-[#0d77cf]">
@@ -83,22 +157,12 @@ const MernCourse = () => {
               <span className="text-xl font-bold text-gray-800"></span>
             </motion.div>
             <motion.button
-              // onClick={async () => {
-              //   await navigate("/");
-              //   setTimeout(() => {
-              //     const el = document.getElementById("courses");
-              //     if (el) {
-              //       el.scrollIntoView({ behavior: "smooth" });
-              //     }
-              //   }, 500);
-              // }}
-              // whileHover={{ scale: 1.05 }}
-              // whileTap={{ scale: 0.95 }}
+              onClick={() => setIsModalOpen(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
             >
-              <a href="/MERN Full Stack Brochure.pdf" download>
-                Download Brochure
-              </a>
+              Download Curriculum
             </motion.button>
           </motion.header>
 
@@ -198,25 +262,20 @@ const MernCourse = () => {
                 </div>
 
                 <motion.button
-                  onClick={async () => {
-                    const result = await sendEmail({
-                      phone: number,
-                      name: name,
-                      course: "Mern Stack",
-                    });
-                    if (result.success) {
-                      setNumber("");
-                      setName("");
-                    } else {
-                      toast.error("Failed to send query");
-                    }
-                  }}
+                  onClick={handleMainFormSubmit}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-[#0d77cf] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-[#0d77cf] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg disabled:opacity-50"
                 >
-                  <span>Apply Now</span>
-                  <ArrowRight className="w-5 h-5" />
+                  {isLoading ? (
+                    <span className="animate-pulse">Sending...</span>
+                  ) : (
+                    <>
+                      <span>Apply Now</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
                 </motion.button>
               </motion.div>
 
@@ -230,11 +289,6 @@ const MernCourse = () => {
                   Terms & Conditions
                 </button>
               </motion.p>
-
-              {/* Trust Badges */}
-              <motion.div variants={itemVariants} className="mt-6 pt-6 border-t border-gray-200">
-                <div className="flex items-center justify-center space-x-4 text-gray-500 text-sm"></div>
-              </motion.div>
             </motion.div>
           </div>
 
@@ -264,6 +318,82 @@ const MernCourse = () => {
           />
         </motion.div>
       </div>
+
+      {/* Download Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full"
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Download Syllabus</h2>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="text-gray-400 hover:text-gray-600 transition"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              <form onSubmit={handleDownloadSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="modal-name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="modal-name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0d77cf] focus:border-transparent shadow-sm"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="modal-phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="text"
+                    id="modal-phone"
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0d77cf] focus:border-transparent shadow-sm"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-[#0d77cf] to-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <span className="animate-pulse">Submitting...</span>
+                  ) : (
+                    <>
+                      <span>Submit & Download</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              <p className="text-gray-500 text-sm mt-4 text-center">
+                We'll send the MERN Stack syllabus to your download folder
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       <MernSyllabus />
       <StepsToSuccess />
       <FAQ />
