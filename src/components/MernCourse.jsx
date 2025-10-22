@@ -63,9 +63,9 @@ const MernCourse = () => {
 
   const navigate = useNavigate();
 
-  const handleDownloadSubmit = async (e) => {
+  const handleDownloadSubmit = async e => {
     e.preventDefault();
-    
+
     if (!name || !number) {
       toast.warning("Please fill in all fields!");
       return;
@@ -80,16 +80,16 @@ const MernCourse = () => {
       });
 
       if (result.success) {
-        toast.success("Details submitted successfully! Downloading syllabus...");
-        setCanDownload(true);
         
+        setCanDownload(true);
+
         // Close modal after a short delay
         setTimeout(() => {
           setIsModalOpen(false);
           // Trigger download
-          const link = document.createElement('a');
-          link.href = '/MERN Full Stack Brochure.pdf';
-          link.download = 'MERN_Full_Stack_Syllabus.pdf';
+          const link = document.createElement("a");
+          link.href = "/MERN Full Stack Brochure.pdf";
+          link.download = "MERN_Full_Stack_Syllabus.pdf";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -165,10 +165,7 @@ const MernCourse = () => {
               className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
             >
               Download Curriculum
-            <motion.button className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg">
-              <a href="/MERN Full Stack Brochure.pdf" download>
-                Download Brochure
-              </a>
+              <a href="/MERN Full Stack Brochure.pdf" download />
             </motion.button>
           </motion.header>
 
@@ -337,14 +334,17 @@ const MernCourse = () => {
 
               <form onSubmit={handleDownloadSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="modal-name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="modal-name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Full Name *
                   </label>
                   <input
                     type="text"
                     id="modal-name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={e => setName(e.target.value)}
                     required
                     className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0d77cf] focus:border-transparent shadow-sm"
                     placeholder="Enter your full name"
@@ -352,14 +352,17 @@ const MernCourse = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="modal-phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="modal-phone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Phone Number *
                   </label>
                   <input
                     type="text"
                     id="modal-phone"
                     value={number}
-                    onChange={(e) => setNumber(e.target.value)}
+                    onChange={e => setNumber(e.target.value)}
                     required
                     className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0d77cf] focus:border-transparent shadow-sm"
                     placeholder="Enter your phone number"

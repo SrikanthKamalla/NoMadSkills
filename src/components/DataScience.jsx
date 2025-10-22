@@ -77,7 +77,7 @@ const DataScience = () => {
       });
 
       if (result.success) {
-        toast.success("Details submitted successfully! Downloading syllabus...");
+        
         
         // Close modal after a short delay and trigger download
         setTimeout(() => {
