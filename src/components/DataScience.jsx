@@ -50,11 +50,11 @@ const DataScience = () => {
     { icon: <Target className="w-6 h-6" />, text: "Real Projects" },
   ];
 
-  const stats = [
-    { number: "95%", label: "Placement Rate" },
-    { number: "10K+", label: "Students Trained" },
-    { number: "4.5", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
-  ];
+  // const stats = [
+  //   { number: "95%", label: "Placement Rate" },
+  //   { number: "10K+", label: "Students Trained" },
+  //   { number: "4.5", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
+  // ];
   const navigate = useNavigate();
   return (
     <div className="min-h-screen mt-6 bg-gradient-to-br from-blue-50 via-blue-100 to-[#0d77cf]">
@@ -137,17 +137,7 @@ const DataScience = () => {
               </motion.div>
 
               {/* Stats */}
-              <motion.div variants={itemVariants} className="flex space-x-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-800">
-                      <span>{stat.number}</span>
-                      {stat.icon}
-                    </div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              <motion.div variants={itemVariants} className="flex space-x-8"></motion.div>
             </motion.div>
 
             {/* Right Content - Form */}

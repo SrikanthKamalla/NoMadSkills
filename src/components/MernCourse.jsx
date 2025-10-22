@@ -17,11 +17,13 @@ import FAQ from "./FAQ";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
+import Modal from "./Modal";
+import RequestCallForm from "./RequestCallForm";
 
 const MernCourse = () => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -50,11 +52,11 @@ const MernCourse = () => {
     { icon: <Target className="w-6 h-6" />, text: "Real Projects" },
   ];
 
-  const stats = [
-    { number: "95%", label: "Placement Rate" },
-    { number: "10K+", label: "Students Trained" },
-    { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
-  ];
+  // const stats = [
+  //   { number: "95%", label: "Placement Rate" },
+  //   { number: "10K+", label: "Students Trained" },
+  //   { number: "4.9", label: "Rating", icon: <Star className="w-4 h-4 fill-current" /> },
+  // ];
   const navigate = useNavigate();
 
   return (
@@ -82,20 +84,7 @@ const MernCourse = () => {
               <Rocket className="w-8 h-8 text-[#0d77cf]" />
               <span className="text-xl font-bold text-gray-800"></span>
             </motion.div>
-            <motion.button
-              // onClick={async () => {
-              //   await navigate("/");
-              //   setTimeout(() => {
-              //     const el = document.getElementById("courses");
-              //     if (el) {
-              //       el.scrollIntoView({ behavior: "smooth" });
-              //     }
-              //   }, 500);
-              // }}
-              // whileHover={{ scale: 1.05 }}
-              // whileTap={{ scale: 0.95 }}
-              className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg"
-            >
+            <motion.button className="bg-[#0d77cf] hover:bg-blue-400 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-lg">
               <a href="/MERN Full Stack Brochure.pdf" download>
                 Download Brochure
               </a>
@@ -140,17 +129,7 @@ const MernCourse = () => {
               </motion.div>
 
               {/* Stats */}
-              <motion.div variants={itemVariants} className="flex space-x-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-800">
-                      <span>{stat.number}</span>
-                      {stat.icon}
-                    </div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+              <motion.div variants={itemVariants} className="flex space-x-8"></motion.div>
             </motion.div>
 
             {/* Right Content - Form */}
