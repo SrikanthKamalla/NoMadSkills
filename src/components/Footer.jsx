@@ -153,7 +153,7 @@ const Footer = () => {
                   <FaInstagram className="text-base text-white hover:text-[#0d77cf]" />
                 </motion.a>
                 <motion.a
-                  href="https://www.facebook.com/profile.php?id=61559459916434"
+                  href=" https://www.facebook.com/profile.php?id=61582785357022#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-[#7ac3ff] transition-all duration-300 hover:bg-white"
