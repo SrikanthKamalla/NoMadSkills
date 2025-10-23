@@ -157,7 +157,7 @@ const DataScience = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
               <Rocket className="w-8 h-8 text-[#0d77cf]" />
-              <span className="text-xl font-bold text-gray-800">NomadSkills</span>
+            
             </motion.div>
             <motion.button
               onClick={() => setIsModalOpen(true)}
