@@ -184,7 +184,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-4">
         {/* Logo */}
         <motion.div
-          className="flex items-center justify-center flex-shrink-0 cursor-pointer "
+          className="flex items-center justify-center -translate-x-1/12 flex-shrink-0 cursor-pointer "
           onClick={handleLogoClick}
           role="button"
           tabIndex={0}

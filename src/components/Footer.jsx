@@ -93,7 +93,7 @@ const Footer = () => {
               <motion.div
                 role="button"
                 onClick={() => window.scrollTo(0, 0)}
-                className="flex items-center space-x-3 cursor-pointer p-1"
+                className=" cursor-pointer -translate-x-1/12"
                 // whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
