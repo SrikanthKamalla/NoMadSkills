@@ -11,7 +11,8 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 export default function PrivacyTerms() {
   // Scroll to top when component mounts

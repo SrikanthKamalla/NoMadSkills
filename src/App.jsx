@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Helmet } from "react-helmet-async"; // ✅ Helmet import for SEO
+import { Helmet } from "react-helmet";
+ // ✅ Helmet import for SEO
 
 // 🔹 Component Imports
 import Navbar from "../src/components/Navbar";

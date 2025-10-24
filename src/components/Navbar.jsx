@@ -6,7 +6,8 @@ import nslogo2 from "../assets/nslogo5.svg";
 import nslogo from "../assets/nslogo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // mobile menu open

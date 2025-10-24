@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 import { useState, useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

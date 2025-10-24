@@ -15,7 +15,8 @@ import {
   CreditCardIcon,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);

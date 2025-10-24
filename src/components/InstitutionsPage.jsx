@@ -3,7 +3,8 @@ import { School, GraduationCap, Users, Award, Layers, BookOpen, Briefcase, X } f
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer"; // your email utility
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const Institutions = () => {
   const navigate = useNavigate();

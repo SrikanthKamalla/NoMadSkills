@@ -16,7 +16,8 @@ import { IoCall } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import nslogo2 from "../assets/nslogo5.svg";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const Footer = () => {
   const [ref, inView] = useInView({

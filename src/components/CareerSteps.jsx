@@ -22,7 +22,8 @@ import {
 } from "lucide-react";
 import certificate from "../assets/certificate.webp";
 import certificateIntership from "../assets/cerificateIntership.webp";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const steps = [
   {

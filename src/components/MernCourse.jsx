@@ -20,7 +20,8 @@ import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
 import Modal from "./Modal";
 import RequestCallForm from "./RequestCallForm";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const MernCourse = () => {
   const [number, setNumber] = useState("");

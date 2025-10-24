@@ -18,7 +18,8 @@ import FAQ from "./FAQ";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 const DataAnalytics = () => {
   const [number, setNumber] = useState("");
