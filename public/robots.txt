@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nomadskills.in/sitemap.xml
+
+# Helpful hints for search bots
+Clean-param: utm_source&utm_medium&utm_campaign
