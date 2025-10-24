@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Rocket, X } from "lucide-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { sendEmail } from "../nodeMailerServer";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // ⚠️ Import your email sending function from the backend
 // import { sendEmail } from "../nodeMailerServer";

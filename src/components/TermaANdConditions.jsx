@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Shield, FileText, AlertCircle, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();

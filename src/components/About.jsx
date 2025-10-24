@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Users, Rocket, Lightbulb, Code, Briefcase, Heart } from "lucide-react";
 

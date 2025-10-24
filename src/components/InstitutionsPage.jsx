@@ -3,7 +3,7 @@ import { School, GraduationCap, Users, Award, Layers, BookOpen, Briefcase, X } f
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer"; // your email utility
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Institutions = () => {
   const navigate = useNavigate();
@@ -192,8 +192,11 @@ const Institutions = () => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 backdrop-blur-xs bg-opacity-80 flex items-center justify-center p-4 z-50 transition-opacity duration-300">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-fadeIn">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
+            <div
+              className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full mx-auto my-8 overflow-y-auto max-h-[90vh] animate-fadeIn 
+               scrollbar-hide"
+            >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-900">Contact Us</h2>

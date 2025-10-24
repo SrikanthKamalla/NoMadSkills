@@ -15,11 +15,16 @@ import {
   CreditCardIcon,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const location = useLocation();
+  const currentSEO = {
+    title: "FAQs - DigitalEdify | Learn MERN, Data Science, DevOps, and More",
+    description:
+      "Find answers to common questions about our live training, placements, certifications, and courses in MERN, Data Science, DevOps, and more.",
+  };
 
   /* ---------------------- GENERAL FAQs ---------------------- */
   const generalFAQs = [

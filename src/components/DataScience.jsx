@@ -18,7 +18,7 @@ import FAQ from "./FAQ";
 import { useNavigate } from "react-router-dom";
 import { sendEmail } from "../nodeMailerServer";
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const DataScience = () => {
   const [number, setNumber] = useState("");

@@ -11,7 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function PrivacyTerms() {
   // Scroll to top when component mounts
@@ -103,7 +103,7 @@ export default function PrivacyTerms() {
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent"
+              className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text p-2 text-transparent"
             >
               Privacy Policy
             </motion.h1>
