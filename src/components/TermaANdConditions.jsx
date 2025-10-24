@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Shield, FileText, AlertCircle, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -107,101 +108,120 @@ const TermsAndConditions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-20 pb-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <Shield className="w-8 h-8 text-white" />
-            </div>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Terms & Conditions
-          </h1>
-          <p className="text-lg text-gray-600">
-            Last updated: {new Date(2025,9,19).toLocaleDateString("en-IN")}
-          </p>
-        </div>
+    <>
+      <Helmet>
+        <title>Terms & Conditions | Nomadskills</title>
+        <meta
+          name="description"
+          content="Read the official Terms and Conditions of Nomadskills (Laxion Pvt. Ltd.). Learn about our user agreements, privacy policies, intellectual property rights, and service limitations."
+        />
+        <meta
+          name="keywords"
+          content="Nomadskills terms, conditions, user agreement, legal policy, Laxion Pvt Ltd, education platform terms, online learning policy"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          name="google-site-verification"
+          content="j4ORLKZP8m5CDbROLwqodTxsLkdw2gpTAZQF_gz0Xgs"
+        />
+        <link rel="canonical" href="https://www.nomadskills.in/terms-and-conditions" />
+      </Helmet>
 
-        {/* Important Notice */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-          <div className="flex items-start gap-3">
-            <AlertCircle className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-            <div>
-              <h3 className="text-lg font-semibold text-blue-800 mb-2">Important Notice</h3>
-              <p className="text-blue-700">
-                Please read the following terms and conditions carefully. By using this website and/or platform you agree to be bound by all of them.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Terms Sections */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-          <div className="space-y-8">
-            {sections.map((section, index) => (
-              <section
-                key={index}
-                className="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0"
-              >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <FileText className="w-6 h-6 text-blue-500" />
-                  {section.title}
-                </h2>
-                <ul className="space-y-3">
-                  {section.content.map((point, pointIndex) => (
-                    <li key={pointIndex} className="flex items-start gap-3 text-gray-700">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </div>
-
-        {/* Important Points */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Key Points to Remember</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {importantPoints.map((point, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">{point}</span>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-20 pb-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact & Support */}
-        <div className="text-center bg-gray-50 rounded-2xl p-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
-          <p className="text-gray-600 mb-6">
-            If you have any questions about these Terms, please contact us:
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 text-sm text-gray-700">
-            <div className="flex items-center justify-center gap-2">
-              <span>📧</span>
-              <span>contact@nomadskills.in</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <span>🏢</span>
-              <span>Laxion Pvt. Ltd.</span>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms & Conditions</h1>
+            <p className="text-lg text-gray-600">
+              Last updated: {new Date(2025, 9, 19).toLocaleDateString("en-IN")}
+            </p>
+          </div>
+
+          {/* Important Notice */}
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-lg font-semibold text-blue-800 mb-2">Important Notice</h3>
+                <p className="text-blue-700">
+                  Please read the following terms and conditions carefully. By using this website
+                  and/or platform you agree to be bound by all of them.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Acceptance */}
-        <div className="text-center mt-8 p-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white">
-          <p className="font-semibold">
-            By using our Platform, you acknowledge that you have read, understood, and agree to be
-            bound by these Terms and Conditions.
-          </p>
+          {/* Terms Sections */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="space-y-8">
+              {sections.map((section, index) => (
+                <section
+                  key={index}
+                  className="border-b border-gray-200 pb-8 last:border-b-0 last:pb-0"
+                >
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <FileText className="w-6 h-6 text-blue-500" />
+                    {section.title}
+                  </h2>
+                  <ul className="space-y-3">
+                    {section.content.map((point, pointIndex) => (
+                      <li key={pointIndex} className="flex items-start gap-3 text-gray-700">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </div>
+
+          {/* Important Points */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Key Points to Remember</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {importantPoints.map((point, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact & Support */}
+          <div className="text-center bg-gray-50 rounded-2xl p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Us</h3>
+            <p className="text-gray-600 mb-6">
+              If you have any questions about these Terms, please contact us:
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 text-sm text-gray-700">
+              <div className="flex items-center justify-center gap-2">
+                <span>📧</span>
+                <span>contact@nomadskills.in</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <span>🏢</span>
+                <span>Laxion Pvt. Ltd.</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Acceptance */}
+          <div className="text-center mt-8 p-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white">
+            <p className="font-semibold">
+              By using our Platform, you acknowledge that you have read, understood, and agree to be
+              bound by these Terms and Conditions.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

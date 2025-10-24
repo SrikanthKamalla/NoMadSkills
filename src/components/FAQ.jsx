@@ -15,6 +15,7 @@ import {
   CreditCardIcon,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -218,65 +219,85 @@ const FAQ = () => {
 
   /* ---------------------- RENDER ---------------------- */
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6">
-            <HelpCircle className="w-4 h-4" />
-            <span className="font-semibold text-sm uppercase tracking-wide">Got Questions?</span>
+    <>
+      <Helmet>
+        <title>{currentSEO.title}</title>
+        <meta name="description" content={currentSEO.description} />
+        <meta
+          name="keywords"
+          content="FAQ, DigitalEdify, Course Questions, MERN Stack, DevOps, Data Science, Data Analytics, Placement Support, Certifications"
+        />
+        <meta property="og:title" content={currentSEO.title} />
+        <meta property="og:description" content={currentSEO.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://www.yourdomain.com${path}`} />
+        <meta property="og:image" content="https://www.yourdomain.com/faq-preview.jpg" />
+        <meta
+          name="google-site-verification"
+          content="j4ORLKZP8m5CDbROLwqodTxsLkdw2gpTAZQF_gz0Xgs"
+        />
+        <link rel="canonical" href={`https://www.yourdomain.com${path}`} />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6">
+              <HelpCircle className="w-4 h-4" />
+              <span className="font-semibold text-sm uppercase tracking-wide">Got Questions?</span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Frequently Asked{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Questions
+              </span>
+            </h1>
+
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              {path === "/"
+                ? "Find answers to general queries about our programs, admissions, and placements."
+                : `Find answers related to our ${path.replace("/", "")} course and common questions.`}
+            </p>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Questions
-            </span>
-          </h1>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            {path === "/"
-              ? "Find answers to general queries about our programs, admissions, and placements."
-              : `Find answers related to our ${path.replace("/", "")} course and common questions.`}
-          </p>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-6 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:bg-gray-50 transition-colors duration-200"
+          {/* FAQ Items */}
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">{faq.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
-                </div>
-                <div
-                  className={`flex-shrink-0 text-gray-400 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full text-left p-6 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:bg-gray-50 transition-colors duration-200"
                 >
-                  <ChevronDown className="w-5 h-5" />
-                </div>
-              </button>
-
-              {openIndex === index && (
-                <div className="px-6 pb-6 transition-all duration-300">
-                  <div className="pl-12">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">{faq.icon}</div>
+                    <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                  <div
+                    className={`flex-shrink-0 text-gray-400 transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  >
+                    <ChevronDown className="w-5 h-5" />
+                  </div>
+                </button>
+
+                {openIndex === index && (
+                  <div className="px-6 pb-6 transition-all duration-300">
+                    <div className="pl-12">
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

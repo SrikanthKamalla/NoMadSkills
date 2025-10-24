@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useState, useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -162,7 +163,7 @@ const Hero = ({ className = "" }) => {
 
         if (result.success) {
           setIsModalOpen(false);
-          
+
           // Reset form
           setFormValues({ name: "", email: "", phone: "", program: "" });
           setFocusState({ name: false, email: false, phone: false, program: false });
@@ -192,6 +193,30 @@ const Hero = ({ className = "" }) => {
     <section
       className={`min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-14 ${className}`}
     >
+      <Helmet>
+        <title>NomadSkills | Learn MERN, Data Analytics & DevOps with Real Projects</title>
+        <meta
+          name="description"
+          content="Join NomadSkills and master MERN Stack, Data Analytics, and DevOps with hands-on projects, expert mentorship, and job-focused training. Learn. Build. Get Hired."
+        />
+        <meta
+          name="keywords"
+          content="NomadSkills, MERN stack, DevOps, Data Analytics, tech career, online bootcamp, job-ready skills, IT training, real projects"
+        />
+        <link rel="canonical" href="https://nomadskills.in/" />
+        <meta
+          property="og:title"
+          content="NomadSkills | Learn MERN, Data Analytics & DevOps with Real Projects"
+        />
+        <meta
+          property="og:description"
+          content="Master in-demand skills with NomadSkills through real projects and career mentorship. Build your portfolio and get hired faster."
+        />
+        <meta property="og:url" content="https://nomadskills.in/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://nomadskills.in/assets/og-image.webp" />
+      </Helmet>
+
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -422,7 +447,9 @@ const Hero = ({ className = "" }) => {
                         <div
                           key={program.id}
                           className={`px-3 py-3 cursor-pointer transition-colors duration-200 hover:bg-blue-50 ${
-                            selectedProgram === program.name ? "bg-blue-50 text-[#0d77cf]" : "text-gray-900"
+                            selectedProgram === program.name
+                              ? "bg-blue-50 text-[#0d77cf]"
+                              : "text-gray-900"
                           } first:rounded-t-lg last:rounded-b-lg`}
                           onClick={() => handleProgramSelect(program.name)}
                           onKeyDown={e => {
@@ -441,7 +468,9 @@ const Hero = ({ className = "" }) => {
                   )}
 
                   <div className="h-5 mt-1">
-                    {errors.program && <p className="text-red-500 text-sm">{errors.program.message}</p>}
+                    {errors.program && (
+                      <p className="text-red-500 text-sm">{errors.program.message}</p>
+                    )}
                   </div>
                 </div>
 
