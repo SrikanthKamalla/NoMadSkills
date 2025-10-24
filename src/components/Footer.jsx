@@ -15,7 +15,7 @@ import { MdLocationPin, MdMail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import nslogo from "../assets/nslogo.png";
+import nslogo2 from  "../assets/nslogo5.svg";
 
 const Footer = () => {
   const [ref, inView] = useInView({
@@ -93,7 +93,7 @@ const Footer = () => {
               <motion.div
                 role="button"
                 onClick={() => window.scrollTo(0, 0)}
-                className="flex items-center space-x-3 cursor-pointer"
+                className="flex items-center space-x-3 cursor-pointer p-1"
                 // whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
@@ -105,9 +105,9 @@ const Footer = () => {
                   <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
                 </motion.div> */}
                 <motion.img
-                  src={nslogo}
+                  src={nslogo2}
                   alt="NomadSkills"
-                  className="navbar-logo w-48 sm:w-44 object-cover bg-white rounded-lg  shadow-md"
+                  className="navbar-logo w-48 sm:w-44 object-cover bg-white rounded-lg   shadow-md"
                 />
               </motion.div>
 

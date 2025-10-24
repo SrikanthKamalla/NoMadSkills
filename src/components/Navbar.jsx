@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import Modal from "./Modal";
 import RequestCallForm from "./RequestCallForm";
-import logo from "../assets/logo.webp";
+import nslogo2 from "../assets/nslogo5.svg";
 import nslogo from "../assets/nslogo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -184,28 +184,18 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-4">
         {/* Logo */}
         <motion.div
-          className="flex items-center gap-3 flex-shrink-0 cursor-pointer"
+          className="flex items-center justify-center flex-shrink-0 cursor-pointer "
           onClick={handleLogoClick}
           role="button"
           tabIndex={0}
-          onKeyDown={e => {
-            if (e.key === "Enter") handleLogoClick();
-          }}
-          // whileHover={{ scale: 1.05 }}
+          onKeyDown={e => e.key === "Enter" && handleLogoClick()}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         >
-          {/* <motion.img
-            src={logo}
-            alt="NomadSkills Logo"
-            className="hidden sm:block h-8 w-8 sm:h-10 sm:w-10 object-contain rounded-md p-1"
-            whileHover={{ rotate: 5 }}
-            transition={{ duration: 0.2 }}
-          /> */}
           <motion.img
-            src={nslogo}
+            src={nslogo2}
             alt="NomadSkills"
-            className="navbar-logo w-48 sm:w-44 object-cover bg-white rounded-lg  shadow-md"
+            className="navbar-logo w-44 sm:w-48 object-cover rounded-lg "
           />
         </motion.div>
 
