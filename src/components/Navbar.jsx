@@ -267,7 +267,7 @@ const Navbar = () => {
             <motion.img
               src={nslogo2}
               alt="NomadSkills"
-              className="navbar-logo w-44 sm:w-48 object-cover rounded-lg "
+              className="navbar-logo w-60 mt-2.5 sm:mt-0  object-cover rounded-lg "
             />
           </motion.div>
 
