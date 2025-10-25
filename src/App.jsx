@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet";
- // ✅ Helmet import for SEO
-
-// 🔹 Component Imports
 import Navbar from "../src/components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -20,6 +17,7 @@ import DataScience from "./components/DataScience";
 import AboutUs from "./components/About";
 import PrivacyTerms from "./components/PrivacyTerms";
 import Contact from "./components/Contact";
+import FixedWhatsappButton from "./components/FixedWhatsAppIcon";
 
 const MainComponent = () => {
   useEffect(() => {
@@ -74,6 +72,7 @@ const MainComponent = () => {
       <main className="pt-13">
         <Outlet />
       </main>
+      <FixedWhatsappButton />
       <Footer />
     </>
   );
