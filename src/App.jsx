@@ -18,6 +18,7 @@ import AboutUs from "./components/About";
 import PrivacyTerms from "./components/PrivacyTerms";
 import Contact from "./components/Contact";
 import FixedWhatsappButton from "./components/FixedWhatsAppIcon";
+import MedicalCourse from "./components/MedicalCourse";
 
 const MainComponent = () => {
   useEffect(() => {
@@ -99,6 +100,7 @@ const App = () => {
             }
           />
           <Route path="merncourse" element={<MernCourse />} />
+          <Route path="medicalcoding" element={<MedicalCourse />} />
           <Route path="devops" element={<Devops />} />
           <Route path="dataanalytics" element={<DataAnalytics />} />
           <Route path="datascience" element={<DataScience />} />
