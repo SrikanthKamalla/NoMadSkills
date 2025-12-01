@@ -8,7 +8,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // mobile menu open
   const [showCourses, setShowCourses] = useState(false); // dropdown open
@@ -28,6 +27,7 @@ const Navbar = () => {
         { id: 2, course: "AWS DevOps Engineer", path: "/devops" },
         { id: 3, course: "Data Analytics with AI", path: "/dataanalytics" },
         { id: 4, course: "Full Stack AI & Data Science", path: "/datascience" },
+        { id: 5, course: "Medical Coding", path: "/medicalcoding" },
       ],
     },
     { id: 3, title: "For Instructions", path: "/institutions" },
