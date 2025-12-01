@@ -165,7 +165,7 @@ const Footer = () => {
                   <motion.img
                     src={nslogo2}
                     alt="NomadSkills"
-                    className="navbar-logo w-52 sm:w-56 object-cover rounded-lg"
+                    className="navbar-logo w-[12rem] sm:w-56 object-cover rounded-lg"
                   />
                 </motion.div>
 
