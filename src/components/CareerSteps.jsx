@@ -122,7 +122,7 @@ const steps = [
     certificates: [
       {
         type: "Program Certificate",
-        issuer: "DigitalEdify & Industry Partners",
+        issuer: "NomadSkills & Industry Partners",
         level: "Advanced",
         image: certificate,
         benefits: [
@@ -135,7 +135,7 @@ const steps = [
       },
       {
         type: "Internship Certificate",
-        issuer: "DigitalEdify & Partner Companies",
+        issuer: "NomadSkills & Partner Companies",
         level: "Professional",
         image: certificateIntership,
         benefits: [
@@ -457,19 +457,19 @@ export default function EnhancedCareerSteps() {
   return (
     <>
       <Helmet>
-        <title>Career Path | Learn, Build, and Launch Your Tech Career | DigitalEdify</title>
+        <title>Career Path | Learn, Build, and Launch Your Tech Career | NomadSkills</title>
         <meta
           name="description"
-          content="Follow DigitalEdify’s step-by-step career journey: Learn top tech skills, build real-world projects, earn certifications, and launch your dream job in tech."
+          content="Follow NomadSkills’s step-by-step career journey: Learn top tech skills, build real-world projects, earn certifications, and launch your dream job in tech."
         />
         <meta
           name="keywords"
-          content="Career in Tech, Learn Coding, DevOps, MERN Stack, Data Analytics, Data Science, Certifications, DigitalEdify, Job Ready"
+          content="Career in Tech, Learn Coding, DevOps, MERN Stack, Data Analytics, Data Science, Certifications, NomadSkills, Job Ready"
         />
-        <meta property="og:title" content="DigitalEdify - Career Steps to Success" />
+        <meta property="og:title" content="NomadSkills - Career Steps to Success" />
         <meta
           property="og:description"
-          content="Learn, build, and launch your tech career with DigitalEdify’s guided 4-step journey."
+          content="Learn, build, and launch your tech career with NomadSkills’s guided 4-step journey."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.yourdomain.com/careersteps" />

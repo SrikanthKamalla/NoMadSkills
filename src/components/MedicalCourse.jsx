@@ -138,19 +138,19 @@ const MedicalCourse = () => {
     <>
       {/* ✅ SEO Helmet Section */}
       <Helmet>
-        <title>Medical Coding Course | Learn Medical Coding at DigitalEdify</title>
+        <title>Medical Coding Course | Learn Medical Coding at NomadSkills</title>
         <meta
           name="description"
-          content="Join DigitalEdify’s MERN Stack Development course to master MongoDB, Express, React, and Node.js. Get hands-on projects, DSA training, and placement support."
+          content="Join NomadSkills’s MERN Stack Development course to master MongoDB, Express, React, and Node.js. Get hands-on projects, DSA training, and placement support."
         />
         <meta
           name="keywords"
-          content="MERN Stack, React JS Course, Node.js, Full Stack Developer, MongoDB, Express, Web Development, DigitalEdify"
+          content="MERN Stack, React JS Course, Node.js, Full Stack Developer, MongoDB, Express, Web Development, NomadSkills"
         />
-        <meta property="og:title" content="MERN Stack Development Course | DigitalEdify" />
+        <meta property="og:title" content="MERN Stack Development Course | NomadSkills" />
         <meta
           property="og:description"
-          content="Master MERN Stack (MongoDB, Express, React, Node.js) with DigitalEdify. Includes DSA training, real projects, and placement guidance."
+          content="Master MERN Stack (MongoDB, Express, React, Node.js) with NomadSkills. Includes DSA training, real projects, and placement guidance."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.yourdomain.com/merncourse" />

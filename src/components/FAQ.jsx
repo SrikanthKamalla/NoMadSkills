@@ -22,7 +22,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const location = useLocation();
   const currentSEO = {
-    title: "FAQs - DigitalEdify | Learn MERN, Data Science, DevOps, and More",
+    title: "FAQs - NomadSkills | Learn MERN, Data Science, DevOps, and More",
     description:
       "Find answers to common questions about our live training, placements, certifications, and courses in MERN, Data Science, DevOps, and more.",
   };
@@ -231,7 +231,7 @@ const FAQ = () => {
         <meta name="description" content={currentSEO.description} />
         <meta
           name="keywords"
-          content="FAQ, DigitalEdify, Course Questions, MERN Stack, DevOps, Data Science, Data Analytics, Placement Support, Certifications"
+          content="FAQ, NomadSkills, Course Questions, MERN Stack, DevOps, Data Science, Data Analytics, Placement Support, Certifications"
         />
         <meta property="og:title" content={currentSEO.title} />
         <meta property="og:description" content={currentSEO.description} />
